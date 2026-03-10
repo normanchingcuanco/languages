@@ -1,0 +1,2515 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+	<h1>Javascript Mastery</h1>
+
+	<!-- VOCABULARY
+		1. Statement - something that performs an action
+		2. Expression - something that produces a value (ex. logical expression if logical operators were used)
+		3. Literal - raw value written directly (sample: "Hello" - string literal, 10 - number literal, true- boolean literal, null - null literal)
+		4. Variable declaration - is when you create a variable using let or const. Ex: let total
+		5. Primitives are basic, single-value data types. Hold one value only, are copied by value, cannot be mutated, have no internal properties you can change, can oly be reassigned:
+			Primitives:
+			number
+			string
+			boolean
+			null
+			undefined
+			bigint
+			symbol
+
+			Non-primitives (reference types):
+			object
+			array
+			function
+		6. Initialization - is giving a variable its first value. It can happen: During declaration Or after declaration. Example 1 (during declaration): let score = 100; Example 2 (after declaration): let score; score = 100;
+		7. Variable Declaration with initialization - is when the variable receives its first value. Ex: let check (variable decalaration only, value is still undefined). let check = 50; (variable declaration with initialization, value is now defined as 50).
+		8. Initialization statement - is a statement where a variable is declared and assigned its first value in the same line.
+		9. Invocation or calling a function - the act of executing a function.
+		Ex: function greet() {
+			console.log("Hi");
+			}
+			
+			greet();
+			
+			greet → function reference
+			greet() → function invocation
+			Without parentheses, the function does not execute.
+
+		10. First-Match Priority -
+		    In an if / else if / else chain, JavaScript executes the FIRST condition
+		    that evaluates to true and then stops checking the rest.
+		    
+		    This means:
+		    - Order of conditions matters.
+		    - Lower branches may never run.
+		    - Broad conditions placed first can shadow specific ones.
+		    
+		    Example:
+		        if (score >= 50)
+		        else if (score >= 90)
+
+		    If score = 95, the first condition runs and the 90 branch becomes unreachable.
+
+		    Rule:
+		    Always place the most specific or highest-priority condition first. 
+		11. Guard Layering - means validating input BEFORE running business logic.
+
+		    Structure:
+		        1) Reject invalid data.
+		        2) Then classify valid data.
+
+		    Guards protect the system from logic leaks.
+
+		    Example:
+		        if (temperature > 60)
+		        else if (temperature < -50)
+		        else if (temperature >= 30)
+
+		    If invalid checks are placed after classification,
+		    invalid values may be misclassified instead of rejected.
+
+		    Rule:
+		    Always validate first. Classify second.  
+		12. Descending Classification - means ordering conditions from
+		    highest threshold to lowest threshold.
+
+		    Structure:
+		        else if (value >= 30)
+		        else if (value >= 15)
+		        else if (value >= 0)
+		        else
+
+		    This works because earlier conditions eliminate higher ranges,
+		    so lower branches automatically represent compressed ranges.
+
+		    Example:
+		        If value = 20:
+		            >= 30 → false
+		            >= 15 → true → executes
+
+		    We do NOT need to write:
+		        value >= 15 && value < 30
+
+		    Earlier conditions already removed >= 30.
+
+		    Rule:
+		    In range systems, go from highest boundary to lowest boundary.-->
+
+
+	<!-- VARIABLES -->
+
+		<!-- Declare the following using let or const:
+				firstName → your first name (string)
+				age → your age (number)
+				isStudent → true or false (boolean)
+			 Log each variable on its own line -->
+		 
+		 <script>
+		 	let firstName = "Norman";
+		 	console.log(firstName);
+		 	let age = 43;
+		 	console.log(age);
+		 	let isStudent = false;
+		 	console.log(isStudent); 
+		 </script>
+
+
+		 <!-- Declare these variables:
+				city → a string
+				zipCode → a number
+				hasPassport → a boolean
+			  Use typeof to log the data type of each variable -->
+
+		  <!-- <script> 
+		  	let city = "Manila";
+		  	let zipCode = 1801;
+		  	let hasPassport = false
+		  	console.log(
+		  		typeof(city),
+		  		typeof(zipCode),
+		  		typeof(hasPassport)
+		  		);
+		  </script> -->
+
+		  <script>
+		  	let city = "Manila";
+		  	let zipCode = 1801;
+		  	let hasPassport = false
+		  	console.log(typeof city);
+			console.log(typeof zipCode);
+			console.log(typeof hasPassport);
+		  </script>
+
+		  <!-- Declare:
+				- middleName without assigning a value
+				- nickname and assign it null
+				Log:
+				- the value of each variable
+				- the result of typeof for each -->
+		  
+		  <!-- <script> 
+		  	let middleName =('');
+		  	let nickname = null;
+		  	console.log(
+		  		typeof(middleName),
+		  		typeof(nickname)	
+		  		);
+		  </script> -->
+
+		  <script>
+		  	let middleName;
+		  	let nickname = null;
+		  	console.log(middleName);
+		  	console.log(nickname);
+		  </script>
+
+		  <!-- Goal: Understand let vs const
+				1. Declare a variable score using let and set it to 10
+				2. Log it
+				3. Reassign score to 20
+				4. Log it again -->
+
+			<script>
+				let score = 10;
+				console.log(score);
+				score = 20;
+				console.log(score);
+			</script>
+			
+		   <!--  Goal: Spot the difference between numbers and numeric strings
+					1. Declare:
+						numA = 10
+						numB = "10"
+					Log:
+						the value of each
+						the typeof each -->
+			<script>
+				let numA = 10;
+				let numB = "10"
+
+				console.log(numA);
+				console.log(numB);
+
+				console.log(typeof numA);
+				console.log(typeof numB);
+			</script>
+
+			<!-- Declare:
+					- isLoggedIn = true
+					- hasAccess = false
+					Log:
+					- each value
+					- the typeof each -->
+
+		    <script>
+		    	let isLoggedIn = true;
+		    	let hasAccess = false;
+
+		    	console.log(isLoggedIn);
+		    	console.log(hasAccess);
+
+		    	console.log(typeof isLoggedIn);
+		    	console.log(typeof hasAccess);
+		    </script>
+
+		    <script>
+		    	let a;
+		    	a = 5;
+		    	console.log(a);
+
+		    	const base = 10;
+		    	let result = base + 5;
+		    	result = result + base;
+
+		    	console.log(result);
+
+		    	let m;
+		    	let n = m;
+
+		    	console.log(n);
+
+		    	let p = 2; // p is 2
+		    	let q = p + 3; //q is 5
+		    	p = q + 1; // p which is 2 is now equal to 5 + 1 =6
+
+		    	console.log(p); // 6
+		    	console.log(q); // 5
+
+		    	/*let score = 10;
+		    	score = score + 5; // 10 + 10 + 5 = 25
+		    	score = score - 3; // 25 - 3 = 22
+		    	score = score * 2; // 22 * 2 = 44
+
+		    	console.log(score); //44 */
+
+		    	const tax = 0.1; 
+		    	let price = 100;
+		    	let total = price + price * tax; //200 * 0.1 = 220
+
+		    	console.log(total);
+
+		    	/*let a = 5;
+		    	const b = a;
+		    	a = 20;
+
+		    	console.log(b);*/
+
+		    	/*let a = 5;
+		    	let value = 1;
+		    	value = 2;
+		    	let value = 3;*/
+
+		    	/* let x = 3;
+		    	let y = x + 2; // 5
+		    	x = y * 2; // x is now 10
+		    	y = x - y; // y is now equal to 5
+
+		    	console.log(x);
+		    	console.log(y);
+
+		    	let a = 4; // a is 4
+		    	let b = a; // b is 4
+		    	a = a + 3; // a = 4+3 = 7
+		    	b = a + b; // b = 7+4 = 11
+
+		    	console.log(a); // 7
+		    	console.log(b); // 11
+
+		    	let x = 20; // x = 20
+		    	x = x / 2; // x = 20 / 2 = 10
+		    	x = x + 5; // x = 10 + 5 = 15
+		    	x = x * 2; // x = 15 * 2 = 30
+
+		    	console.log(x); //30
+
+		    	let base = 6; // base = 6
+		    	const total = base * 2; // total = 6 * 2 = 12
+		    	base = base + 4; // base = 12 + 4 = 16
+
+		    	console.log(total); // 12 */
+
+		    	let apples = 3; // apples = 3
+		    	let bananas = apples; // bananas = 3
+		    	apples = apples + 4; // apples = 3 +4 = 7
+
+		    	console.log("Sample 1:", apples, bananas); // 7, 3
+
+		    	let width = 5; // width = 5
+		    	let height = 4; // height = 4
+		    	let area = width * height + 10;  // area = 20 + 10 = 30
+
+		    	console.log("Sample 2:", area);
+
+		    	const discountRate = 0.2; // 20%
+		    	let originalPrice = 50; // 50
+		    	let discountedPrice = originalPrice - originalPrice * discountRate; // dP = 
+
+		    	console.log("Sample 3:", discountedPrice);
+
+		    	let temperature; // undefined
+		    	let recordedTemp = temperature; //undefined
+
+		    	console.log("Sample 4:", recordedTemp); //undefined
+
+		    	let points = 100; // 100
+		    	points = points - 30; // 70
+		    	points = points / 2; // 70/2 = 35
+		    	points = points + 10; // 35 +10 = 45
+
+		    	console.log("Sample 5:", points); // 45
+
+		    	/*const baseScore = 8; // 8 
+		    	let finalScore = baseScore * 3; // 24
+		    	finalScore = finalScore - baseScore; // 24 - 8 = 16
+
+		    	console.log("Sample 6:", finalScore); // 16 */
+
+		    	let firstValue = 2; // 1st 2 
+		    	let secondValue = firstValue + 5; // 2nd = 2+5 = 7 
+		    	let thirdValue = secondValue * firstValue; // 3rd = 7*2 = 14
+		    	firstValue = thirdValue - secondValue; // 14 - 7 = 7. 1st = is now 2. Answer is 7 7 14
+
+		    	console.log("Sample 7:", firstValue, secondValue, thirdValue);
+
+		    	let sessionData = null; 
+		    	let cachedData = sessionData;
+
+		    	console.log("Sample 8:", cachedData);
+
+		    	let initialCount = 6; //6 
+		    	let copiedCount = initialCount; //6
+		    	initialCount = initialCount * 2; //12
+
+		    	console.log("Sample 9:", initialCount, copiedCount);
+
+		    	const multiplierValue = 4; // 4
+		    	let runningTotal = 3; // 3
+		    	runningTotal = runningTotal + multiplierValue; // 3+4 = 7
+		    	runningTotal = runningTotal * 2; //14
+
+		    	console.log("Sample 10:", runningTotal);
+
+		    	const country = 'Philippines';
+		    	let population = 110;
+		    	console.log(country);
+		    	console.log(population);
+
+		    	population = 115;
+		    	console.log(population);
+
+		    	let valueD = "";
+		    	let valueE = null;
+		    	let valueF;
+
+		    	console.log(typeof valueD);
+		    	console.log(typeof valueE);
+		    	console.log(typeof valueF);
+
+		    	let count = 0;
+		    	let label = "0";
+		    	let isZero = false;
+
+		    	console.log(typeof count);
+		    	console.log(typeof label);
+		    	console.log(typeof isZero);
+
+		    	const appName = "JS Trainer";
+		    	console.log(typeof appName);
+
+		    	let valA = false;
+		    	let valB = "false";
+		    	let valC = 0;
+		    	let valD = "0";
+
+		    	console.log(valA, typeof valA);
+		    	console.log(valB, typeof valB);
+		    	console.log(valC, typeof valC);
+		    	console.log(valD, typeof valD);
+
+		    	let tempValue;
+		    	let resetValue = null;
+		    	let emptyText = "";
+
+		    	console.log(tempValue, typeof tempValue);
+		    	console.log(resetValue, typeof resetValue);
+		    	console.log(emptyText, typeof emptyText);
+
+		    </script>
+
+
+	<!-- SCOPE -->
+		    
+		    <script>	
+
+		    	// Sample
+		    	{
+		    	  let insideValue = 5;
+		    	  console.log("Inside block:", insideValue);
+		    	}
+
+		    	/* console.log("Outside block:", insideValue); // returns an error because this line is outside the block */
+
+
+		    	/* Rule:
+					Inner blocks can read outer variables
+					Outer code cannot read inner variables */
+
+		    	let outerNumber = 10;
+
+		    	{
+		    	  let innerNumber = outerNumber + 5;
+		    	  console.log("Inner:", innerNumber);
+		    	}
+
+		    	console.log("Outer:", outerNumber); 
+
+		    	/* Same Name, Different Scope (Allowed)
+		    		Block value is the varibles inside the {}
+		    		Global is outside */
+
+		    	let value = 1;
+
+		    	{
+		    	  let value = 2;
+		    	  console.log("Block value:", value);
+		    	}
+
+		    	console.log("Global value:", value);
+
+		    	// Scope Challenges
+
+		    	{
+		    	  let alpha = 10;
+		    	  console.log("C1:", alpha); // 10
+		    	}
+
+		    	{
+		    	  let beta = 20;
+		    	}
+
+		    	// console.log("C2:", beta); // error, comment out
+
+		    	let gamma = 5;
+
+		    	{
+		    	  gamma = gamma + 5; // 10
+		    	}
+
+		    	console.log("C3:", gamma); //10
+
+		    	let delta = 1;
+
+		    	{
+		    	  let delta = 3;
+		    	  console.log("C4 block:", delta); // 3
+		    	}
+
+		    	console.log("C4 outer:", delta); // 1
+
+		    	{
+		    	  const epsilon = 7;
+		    	  console.log("C5:", epsilon); // 7
+		    	}
+
+
+		    	// Nested Scope Challenges
+
+		    	let root = 1;
+
+		    	{
+		    	  let branch = root + 2; // 1+2 = 3
+
+		    	  {
+		    	    let leaf = branch + 3; // 3 + 3 =6
+		    	    console.log("C6 leaf:", leaf); // = 6
+		    	  }
+
+		    	  console.log("C6 branch:", branch); // 3
+		    	}
+
+		    	console.log("C6 root:", root); // 1
+
+		    	let outside = 10; // 10
+
+		    	{
+		    	  let middle = outside + 5; // 10
+
+		    	  {
+		    	    outside = middle * 2; // 10 * 2 = 20
+		    	  }
+		    	}
+
+		    	console.log("C7:", outside); // Error
+
+		    	let valueA = 2; // 2
+
+		    	{
+		    	  let valueB = valueA + 3; // 2+3 = 5
+
+		    	  {
+		    	    let valueA = valueB * 2; // 5*2 = 10
+		    	    console.log("C8 inner:", valueA); //10
+		    	  }
+		    	}
+
+		    	console.log("C8 outer:", valueA); // 10
+
+		    	{
+		    	  let first = 4;
+
+		    	  {
+		    	    let second = first + 6;
+		    	  }
+
+		    	  // console.log("C9:", second); comment out to remove error message in console
+		    	}
+
+		    	let num = 5;
+
+		    	{
+		    	  num = num + 1; // 5+ 1 =6
+
+		    	  {
+		    	    let num = 20;
+		    	    console.log("C10 inner:", num); // 20
+		    	  }
+		    	}
+
+		    	console.log("C10 outer:", num); // 5
+
+		    	let globalValue = 10;
+
+		    	{
+		    	  console.log(globalValue);
+		    	}
+
+		    	console.log(globalValue);
+
+		    	{
+		    	  let blockValue = 20;
+		    	  console.log(blockValue);
+		    	}
+
+		    	// console.log(blockValue);
+
+		    	let number = 5;
+
+		    	{
+		    	  let number = 10;
+		    	  console.log(number); // number is 10
+		    	}
+
+		    	console.log(number); // 5
+
+		    	const status = "ACTIVE";
+
+		    	{
+		    	  const status = "INACTIVE"; 
+		    	  console.log(status);
+		    	}
+
+		    	console.log(status);
+
+		    	/*let score = 100;
+
+		    	{
+		    	  score = 200;
+		    	  console.log(score); //200
+		    	}
+
+		    	console.log(score); //100 */
+
+		    	let pointsGlobal = 50;
+
+		    	{
+		    	  console.log(pointsGlobal);
+		    	}
+
+		    	console.log(pointsGlobal);
+
+		    	let levelValue = 1;
+
+		    	{
+		    	  levelValue = 2;
+		    	  console.log(levelValue);
+		    	}
+
+		    	console.log(levelValue);
+
+		    	let baseScore = 100;
+
+		    	{
+		    	  let shadowScore = 150;
+		    	  console.log(shadowScore);
+		    	}
+
+		    	{
+		    	  baseScore = 200;
+		    	  console.log(baseScore);
+		    	}
+
+		    	console.log(baseScore);
+
+		    	const ticketStatus = "OPEN";
+
+		    	{
+		    	  console.log(ticketStatus);
+		    	}
+
+		    	/* {
+		    	  ticketStatus = "CLOSED"; 
+		    	} */
+
+		    	console.log(ticketStatus);
+
+		    	let outerValueNum = 1; //outer is 1
+
+		    	{
+		    	  let middleValueNum = 2; // middle is 2
+
+		    	  {
+		    	    let innerValueNum = 3; //innerValueNum = 3
+		    	    console.log(innerValueNum);
+		    	  }
+
+		    	  console.log(middleValueNum); // 2
+		    	}
+
+		    	console.log(outerValueNum); // 1
+
+		    	let totalScore = 10;
+
+		    	{
+		    	  totalScore = 50; // 
+		    	}
+
+		    	console.log(totalScore);
+
+		    	let userRole = "USER";
+
+		    	{
+		    	  userRole = "ADMIN";
+		    	}
+
+		    	console.log(userRole);
+
+		    	let statusMessage = "READY";
+
+		    	{
+		    	  let statusMessage = "LOADING";
+		    	  console.log(statusMessage);
+		    	}
+
+		    	console.log(statusMessage);
+
+		    	const appMode = "LIVE";
+
+		    	/* {
+		    	  appMode = "TEST";
+		    	}
+
+		    	console.log(appMode); */
+
+		    	let baseValue = 100;
+
+		    	{
+		    	  let tempValue = 150;
+		    	  console.log(tempValue);
+
+		    	  baseValue = 200;
+		    	  console.log(baseValue);
+		    	}
+
+		    	console.log(baseValue);
+
+		    	// Mutation - no let or const inside the inner code block
+		    	let scoreTotal = 10;
+
+		    	{
+		    	  scoreTotal = scoreTotal + 5;
+		    	  console.log(scoreTotal); //15
+		    	}
+
+		    	console.log(scoreTotal); // 15
+
+		    	// Shadowing - has let or const, only inner block variable changes. outer block retains
+		    	let userCount = 3;
+
+		    	{
+		    	  let userCount = 5;
+		    	  console.log(userCount); // 5
+		    	}
+
+		    	console.log(userCount); // 3
+
+		    	let baseValueA = 1;
+		    	let baseValueB = 2;
+
+		    	{
+		    	  console.log(baseValueA);
+		    	  console.log(baseValueB);
+		    	}
+
+		    	// Illegal shadowing - 2 const can exist as long as one is in a different block. this is still called illegal but it is allowed in js scope. this kind of code is similar to shadowing. inner code changes but outer code retains. 2 const cannot exist in a single block.
+		    	const maxLimit = 100;
+
+		    	{
+		    	  const maxLimit = 200;
+		    	  console.log(maxLimit);
+		    	}
+
+		    	console.log(maxLimit);
+
+		    	let sessionStatus = "ACTIVE";
+
+		    	{
+		    	  sessionStatus = "EXPIRED"; // expired
+		    	}
+
+		    	{
+		    	  let sessionStatus = "PENDING";
+		    	  console.log(sessionStatus); // pending
+		    	}
+
+		    	console.log(sessionStatus); // Active
+
+		    	let alphaValue = 10;
+
+		    	{
+		    	  let alphaValue = 20;
+		    	  console.log(alphaValue); // 20
+		    	}
+
+		    	{
+		    	  alphaValue = 30;
+		    	  console.log(alphaValue); // 30
+		    	}
+
+		    	console.log(alphaValue); // 30
+
+		    	let betaValue = 5;
+
+		    	{
+		    	  betaValue = 15; // 15
+		    	}
+
+		    	{
+		    	  let betaValue = 25; 
+		    	  console.log(betaValue); // 25
+		    	}
+
+		    	console.log(betaValue);  // 15
+
+
+		    	const gammaStatus = "ON";
+
+		    	{
+		    	  const gammaStatus = "OFF";
+		    	  console.log(gammaStatus); // OFF
+		    	}
+
+		    	console.log(gammaStatus); // ON
+
+		    	let deltaCount = 100;
+
+		    	{
+		    	  console.log(deltaCount);
+		    	}
+
+		    	{
+		    	  console.log(deltaCount);
+		    	}
+
+		    	console.log(deltaCount);
+
+		    	let finalScore = 50;
+
+		    	{
+		    	  let tempScore = 60;
+		    	}
+
+		    	{
+		    	  finalScore = 70; // 70 
+		    	}
+
+		    	{
+		    	  let finalScore = 80;
+		    	  console.log(finalScore); // 80
+		    	}
+
+		    	console.log(finalScore); // 70
+
+		    	let reviewValueOne = 5;
+
+		    	{
+		    	  console.log(reviewValueOne); // 5
+		    	}
+
+		    	{
+		    	  let reviewValueOneInner = 10;
+		    	  console.log(reviewValueOneInner); // 10
+		    	}
+
+		    	console.log(reviewValueOne); // 5
+
+		    	let reviewCounter = 1;
+
+		    	{
+		    	  let reviewCounterShadow = 2;
+		    	  console.log(reviewCounterShadow); //2
+		    	}
+
+		    	{
+		    	  reviewCounter = 3;
+		    	  console.log(reviewCounter); // 3 mutation
+		    	}
+
+		    	console.log(reviewCounter); // 3
+
+		    	const reviewStatus = "START";
+
+		    	{
+		    	  console.log(reviewStatus); // Start prints only
+		    	}
+
+		    	{
+		    	  const reviewStatusInner = "MIDDLE";
+		    	  console.log(reviewStatusInner); // Middle
+		    	}
+
+		    	/*{
+		    	  reviewStatus = "END";
+		    	} */
+
+		    	console.log(reviewStatus); // Start
+
+		    	let isLoggedInUser = true;
+
+		    	if (isLoggedInUser) {
+		    	  console.log("User is logged in");
+		    	}
+
+		    	console.log("End of check");
+
+		    	let hasPermissionFlag = true;
+
+		    	if (hasPermissionFlag) {
+		    	  let permissionLevel = "ADMIN";
+		    	  console.log(permissionLevel); // prints ADMIN
+		    	}
+
+		    	console.log(hasPermissionFlag); // true
+
+		    	let accountStatus = "INACTIVE";
+		    	let isVerifiedUser = true;
+
+		    	if (isVerifiedUser) {
+		    	  accountStatus = "ACTIVE";
+		    	}
+
+		    	console.log(accountStatus); // Active
+
+		    	let accessMode = "READ";
+
+		    	if (true) {
+		    	  let accessMode = "WRITE";
+		    	  console.log(accessMode); // WRITE
+		    	}
+
+		    	console.log(accessMode); //READ 
+
+		    	const systemState = "ONLINE";
+
+		    	/* if (true) {
+		    	  systemState = "OFFLINE"; 
+		    	}
+
+		    	console.log(systemState); */
+
+		    	let featureEnabled = false;
+
+		    	/* if (featureEnabled) {
+		    	  console.log("Feature is ON");
+		    	} */
+
+		    	console.log("Done checking feature"); 
+
+		    	let hasAccessFlag = true;
+
+		    	if (hasAccessFlag) {
+		    	  let accessRole = "EDITOR";
+		    	  console.log(accessRole); // EDITOR
+		    	}
+
+		    	console.log(hasAccessFlag); // true
+
+		    	let paymentStatus = "PENDING";
+		    	let isPaymentApproved = true;
+
+		    	if (isPaymentApproved) {
+		    	  let paymentStatus = "APPROVED";
+		    	  console.log(paymentStatus); // APPROVED
+		    	}
+
+		    	console.log(paymentStatus); // PENDING
+
+		    	let morningFlag = true;
+
+		    	if (morningFlag) {
+		    	  console.log("Good morning"); // Good morning
+		    	}
+
+		    	console.log("End of greeting"); // End of greeting
+
+		    	let isAdminUser = false;
+
+		    	if (isAdminUser) {
+		    	  let adminMessage = "Welcome, Admin";
+		    	  console.log(adminMessage);
+		    	}
+
+		    	console.log("Admin check done");
+
+		    	let orderStatus = "PENDING";
+		    	let isOrderPaid = true;
+
+		    	if (isOrderPaid) {
+		    	  orderStatus = "PAID";
+		    	  console.log(orderStatus); //PAID
+		    	}
+
+		    	console.log(orderStatus); // PAID
+
+		    	let featureToggle = false;
+		    	let featureStatus = "OFF";
+
+		    	if (featureToggle) {
+		    	  featureStatus = "ON";
+		    	}
+
+		    	console.log(featureStatus); //OFF
+
+		    	let themeMode = "LIGHT";
+
+		    	if (true) {
+		    	  let themeMode = "DARK";
+		    	  console.log(themeMode); // DARK
+		    	}
+
+		    	console.log(themeMode); // LIGHT
+
+		    	let loginState = "LOGGED_OUT";
+		    	let isAuthenticatedUser = true;
+
+		    	if (isAuthenticatedUser) {
+		    	  loginState = "LOGGED_IN"; // LOGGED IN mutation
+		    	}
+
+		    	if (loginState === "LOGGED_IN") { 
+		    	  console.log("Welcome back"); // Welcome back
+		    	}
+
+		    	console.log(loginState); // LOGGED IN
+
+		    </script>
+
+		
+	<!-- VARIABLES + SCOPE + IF/ELSE -->
+
+			<script>
+				
+				let isMorningTime = false;
+
+				if (isMorningTime) {
+				  console.log("Good morning");
+				} else {
+				  console.log("Good afternoon");
+				}
+
+				console.log("Greeting done");
+
+				let isMemberUser = false;
+
+				if (isMemberUser) {
+				  let discountType = "MEMBER";
+				  console.log(discountType);
+				} else {
+				  let discountType = "GUEST";
+				  console.log(discountType); // GUEST
+				}
+
+				console.log(isMemberUser); // false
+
+				let hasAccount = true;
+				let isEmailVerified = false;
+
+				if (hasAccount) {
+				  console.log("Account exists"); // Account exists
+
+				  if (isEmailVerified) {
+				    let accessLevel = "FULL";
+				    console.log(accessLevel); // will not run
+				  } else {
+				    let accessLevel = "LIMITED";
+				    console.log(accessLevel); // LIMITED
+				  }
+				}
+
+				console.log("Check complete"); // Check complete
+
+				let isOnlineUser = true;
+				let connectionStatus = "OFFLINE"; 
+
+				if (isOnlineUser) {
+				  connectionStatus = "ONLINE"; // ONLINE mutation
+				} else {
+				  connectionStatus = "UNKNOWN"; // Will not run because false
+				}
+
+				console.log(connectionStatus); // ONLINE mutation
+
+				let userType = "GUEST";
+
+				if (userType === "ADMIN") {
+				  console.log("Admin panel");
+				} else {
+				  let userType = "MEMBER";
+				  console.log(userType); // MEMBER
+				}
+
+				console.log(userType); // GUEST
+
+				let hasSubscription = true;
+				let isPaymentValid = false;
+				let accessResult = "DENIED";
+
+				if (hasSubscription) {
+				  if (isPaymentValid) {
+				    accessResult = "FULL ACCESS"; // nothing prints
+				  } else {
+				    accessResult = "LIMITED ACCESS"; // LIMITED ACCESS or changes took effect but no printing
+				  }
+				}
+
+				console.log(accessResult); // LIMITED ACCESS mutation
+
+				// Assignment without redeclaration = mutation.
+
+				let hasProfile = true;
+				let hasAvatar = true;
+				let displayStatus = "HIDDEN";
+
+				if (hasProfile) {
+				  if (hasAvatar) {
+				    displayStatus = "VISIBLE"; // assignment happen displayStatus is now VISIBLE
+				  } else {
+				    displayStatus = "NO AVATAR"; // else block did not run
+				  }
+				} else {
+				  displayStatus = "NO PROFILE"; // assignment did not run because false
+				}
+
+				console.log(displayStatus); // VISIBLE 
+
+				let systemMode = "SAFE";
+				let isOverrideActive = true;
+
+				if (isOverrideActive) {
+				  let systemMode = "OVERRIDE"; // redeclaration. systemMode is now OVERRIDE
+
+				  if (systemMode === "OVERRIDE") {
+				    console.log(systemMode); // prints OVERRIDE
+				  }
+				}
+
+				console.log(systemMode); // SAFE
+
+				let examPassed = false;
+				let bonusPoints = true;
+				let finalGrade = "FAIL";
+
+				if (!examPassed) {
+				  if (bonusPoints) {
+				    finalGrade = "CONDITIONAL PASS"; // this block ran so finalGrade is CONDITIONAL PASS
+				  }
+				}
+
+				if (finalGrade === "CONDITIONAL PASS") {
+				  console.log("Student promoted"); // Student promoted
+				}
+
+				console.log(finalGrade); // CONDITIONAL PASS. Mutation
+
+				let accountType = "BASIC";
+				let isPremiumUpgrade = true;
+				let accessLevel = "LOW";
+
+				if (accountType === "BASIC") {
+				  let accessLevel = "TEMP"; // accessLevel is now TEMP due to redeclaration or shadowing
+
+				  if (isPremiumUpgrade) {
+				    accountType = "PREMIUM"; // accountType changed to PREMIUM due to mutation
+				  }
+
+				  console.log(accessLevel); // prints TEMP
+				}
+
+				console.log(accountType); // PREMIUM
+				console.log(accessLevel); // LOW because shadowing does not affect outer block
+
+			</script>
+
+
+	<!-- VARIABLES + SCOPE + IF/ELSE + COMPARISON OPERATORS -->
+	<!-- RULE: Comparison operators (===, !==, <, >) always return a boolean. Comparison operators (===, !==, <, >) always return a boolean. They do not return the variables — they return the result of the comparison. -->
+
+			<script>
+
+				let compA = 10;
+				let compB = "10";
+
+				console.log(compA === compB); // false
+				console.log(compA !== compB); // true
+
+				let compC = 7;
+				let compD = 12;
+
+				console.log(compC < compD); // true
+				console.log(compC > compD); // false
+				console.log(compC === compD); // false
+
+				let compE = 5;
+				let compF = "5";
+				let resultLabel = "NONE";
+
+				if (compE === compF) {
+				  resultLabel = "STRICT MATCH"; // no reassignment because compE is not equal to compF or false
+				} else {
+				  resultLabel = "NO STRICT MATCH"; // NO STRICT MATCH due to mutation
+				}
+
+				console.log(resultLabel); // NO STRICT MATCH
+
+				let userAge = 18;
+				let accessMessage = "DENIED"; 
+
+				if (userAge === 18) {
+				  accessMessage = "GRANTED"; // GRANTED mutation
+				} else {
+				  accessMessage = "BLOCKED"; // did not run coz false
+				}
+
+				console.log(accessMessage); // GRANTED
+
+				let inputValue = "25";
+				let minimumValue = 25;
+				let resultStatus = "LOW";
+
+				if (inputValue === minimumValue) {
+				  resultStatus = "MATCH"; // false, wont run
+				} else {
+				  resultStatus = "NO MATCH"; // NO MATCH
+				}
+
+				console.log(resultStatus); // NO MATCH mutation
+
+				let hasTicket = true;
+				let ticketType = "VIP";
+				let entryStatus = "WAIT";
+
+				if (hasTicket) {
+				  if (ticketType === "VIP") {
+				    entryStatus = "FAST ENTRY"; // mutation. entryStatus is not FAST ENTRY
+				  } else {
+				    entryStatus = "REGULAR ENTRY"; // this will not run
+				  }
+				}
+
+				console.log(entryStatus); // FAST ENTRY
+
+				let userRoleMain = "USER";
+				let systemAccess = "LIMITED";
+
+				if (userRoleMain === "ADMIN") {
+				  let systemAccess = "FULL";
+				  console.log(systemAccess); // will not run
+				} else {
+				  systemAccess = "PARTIAL"; // PARTIAL. mutation, reassignment occured
+				}
+
+				console.log(systemAccess); // PARTIAL 
+
+				let scoreValue = 75;
+				let passingScore = 70;
+				let gradeStatus = "FAIL";
+
+				if (scoreValue >= passingScore) {
+				  gradeStatus = "PASS"; // mutation. gradeStatus is now PASS
+				}
+
+				if (gradeStatus === "PASS") {
+				  console.log("Student advanced"); // true hence will print Student advanced
+				}
+
+				console.log(gradeStatus); // PASS. mutation
+
+				let cartTotal = 120;
+				let minimumFreeShipping = 100;
+				let shippingStatus = "PAID";
+
+				if (cartTotal >= minimumFreeShipping) {
+				  shippingStatus = "FREE"; // mutation. if condition is true. FREE
+				} else {
+				  shippingStatus = "NOT ELIGIBLE"; //  will not run
+				}
+
+				console.log(shippingStatus); // FREE. mutation
+
+				let userInputScore = "90";
+				let passingMark = 90;
+				let examResult = "FAIL";
+
+				if (userInputScore === passingMark) {
+				  examResult = "PASS"; // will not run.
+				} else {
+				  examResult = "RECHECK"; // RECHECK. mutation
+				}
+
+				console.log(examResult); // RECHECK. mutation
+
+				let hasLicense = true;
+				let vehicleType = "CAR";
+				let drivePermission = "DENIED";
+
+				if (hasLicense) {
+				  if (vehicleType === "CAR") {
+				    let drivePermission = "ALLOWED";
+				    console.log(drivePermission); // shadowing, prints ALLOWED
+				  } else {
+				    drivePermission = "RESTRICTED"; // will not run
+				  }
+				}
+
+				console.log(drivePermission); // DENIED
+
+				let temperatureValue = 30;
+				let thresholdValue = 25;
+				let weatherStatus = "COOL";
+
+				if (temperatureValue > thresholdValue) {
+				  weatherStatus = "HOT"; // HOT. mutation but no printing
+				}
+
+				if (weatherStatus === "HOT") {
+				  console.log("Turn on AC"); // mutation. condition is true. print Turn on AC
+				}
+
+				console.log(weatherStatus); // HOT
+			</script>
+
+
+	<!-- TRUTHY & FALSY -->
+	<!-- In JavaScript, if does not require a boolean. JavaScript automatically converts someValue to true or false behind the scenes. This automatic conversion is called: Boolean coercion.
+	Falsy Types:
+		* false
+		* 0
+		* -0
+		* ""        // empty string
+		* null
+		* undefined
+		* NaN
+	 -->
+
+	 <!-- Samples -->
+	 		<script>
+	 			let valueCheck = "0"; // truthy
+
+	 			if (valueCheck) {
+	 			  console.log("YES"); // YES. this run
+	 			} else {
+	 			  console.log("NO"); // this will not run
+	 			}
+
+	 			let testOne = 0; // falsy
+
+	 			if (testOne) {
+	 			  console.log("RUN"); // will not run
+	 			} else {
+	 			  console.log("STOP"); // will run, STOP
+	 			}
+
+	 			let testThree = null; // falsy
+
+	 			if (testThree) {
+	 			  console.log("ACTIVE"); // will not run. falsy
+	 			} else {
+	 			  console.log("INACTIVE"); // INACTIVE.
+	 			}
+
+	 			let testFour = []; // TRUTHY
+
+	 			if (testFour) {
+	 			  console.log("ARRAY IS TRUTHY"); // ARRAY IS TRUTHY
+	 			} else {
+	 			  console.log("ARRAY IS FALSY");
+	 			}
+
+	 			let quickValueOne = ""; //falsy
+
+	 			if (quickValueOne) {
+	 			  console.log("A"); // will not run
+	 			} else {
+	 			  console.log("B"); // B
+	 			}
+
+	 			let quickValueTwo = "100";
+	 			let quickValueThree = 100;
+
+	 			if (quickValueTwo === quickValueThree) {
+	 			  console.log("MATCH"); // false, will not run
+	 			} else {
+	 			  console.log("NO MATCH"); // NO MATCH
+	 			}
+
+	 			let quickStatus = "ACTIVE"; // truthy
+
+	 			if (quickStatus) {
+	 			  let quickStatus = ""; // 
+	 			  console.log(quickStatus); // ""
+	 			}
+
+	 			console.log(quickStatus); // ACTIVE
+
+	 			let authKeyValue = "xyz789";
+				let currentStateValue = "SIGNED_OUT";
+
+				if (authKeyValue) {
+				  currentStateValue = "SIGNED_IN"; // mutation. changed to SIGNED IN
+				}
+
+				console.log(currentStateValue); // SIGNED_IN
+
+				let enteredScoreValue = "80";
+				let requiredScoreValue = 80;
+				let scoreResultValue = "LOW";
+
+				if (enteredScoreValue !== requiredScoreValue) {
+				  scoreResultValue = "MISMATCH"; // ran, mutation changed to MISMATCH
+				} else {
+				  scoreResultValue = "MATCH"; // did not run
+				}
+
+				console.log(scoreResultValue); // MISMATCH
+
+				let featureFlagValue = true;
+				let displayModeValue = "DEFAULT";
+				let outputStateValue = "INACTIVE";
+
+				if (featureFlagValue) {
+				  let displayModeValue = ""; // displayModeValue is now "" which is falsy. shadowing
+
+				  if (displayModeValue) {
+				    outputStateValue = "ACTIVE"; // will not run
+				  } else {
+				    outputStateValue = "STANDBY"; // outputStateValue is now STANDBY. mutation
+				  }
+				}
+
+				console.log(outputStateValue); // STANDBY
+				console.log(displayModeValue); // DEFAULT			
+
+				let quickInputValue = "0";
+				let isFeatureEnabledValue = false;
+				let systemModeValue = "OFF";
+
+				if (quickInputValue) {
+				  if (isFeatureEnabledValue === false) {
+				    systemModeValue = "STANDBY"; // STANDBY
+				  }
+				}
+
+				console.log(systemModeValue); // STANBY. mutation
+
+				let inputCodeValue = "ACTIVE";
+				let isSystemReadyValue = true;
+				let outputMessageValue = "INIT";
+
+				if (inputCodeValue === "ACTIVE") { // true
+				  if (isSystemReadyValue) { // true
+				    outputMessageValue = ""; // mutation. variable changed to "" which is falsy
+				  }
+				}
+
+				if (outputMessageValue) {
+				  console.log("RUNNING"); // will not run
+				} else {
+				  console.log("WAITING"); // will run, outputMessageValue is now WAITING
+				}
+
+	 		</script>
+
+
+	<!-- ALL OPERATORS (Logical, arithmetic, comparison, ternary, assignment operators) -->
+	<!-- RULE: OR (||) Operators, if at least one side is true - the whole expression is true -->
+	<!-- RULE: AND (&&) Operators, both sides must be true otherwise false -->
+
+
+	<!-- READING CHAINED CONDITIONS -->
+	<!-- SAMPLE: if ((a > b && c) || !d) -->
+	<!-- RULE: 
+			1. Replace comparisons with true/false
+			2. Simplify inside parentheses first
+			3. Apply ! (NOT)
+			4. Apply && (AND)
+			5. Apply || (OR) -->
+
+	<!-- Samples --> 
+			<script>
+				
+				let orderTotalValue = 150;
+				let discountValue = 20;
+
+				orderTotalValue -= discountValue; // 150 (x) = 150 (x) - 20 (discountValue) = 130 
+
+				let paymentStatusValue = orderTotalValue >= 100 ? "FULL PAYMENT" : "PARTIAL PAYMENT"; // true else partial payment
+
+				console.log(orderTotalValue); 130
+				console.log(paymentStatusValue); // FULL PAYMENT
+
+				let isLoggedInValue = true;
+				let userRoleValue = "ADMIN";
+				let accessResultValue = "DENIED";
+
+				if (isLoggedInValue && userRoleValue === "ADMIN") {
+				  accessResultValue = "GRANTED"; // GRANTED through mutation
+				}
+
+				console.log(accessResultValue); // GRANTED
+
+				let creditScoreValue = 580;
+				let incomeValue = 50000;
+				let loanStatusValue = "REJECTED";
+
+				if (creditScoreValue > 700 || incomeValue > 60000) {
+				  loanStatusValue = "APPROVED"; // will not run. both false
+				}
+
+				console.log(loanStatusValue); // REJECTED
+
+				let temperatureReadingValue = 35;
+				let isRainingValue = false;
+				let weatherAlertValue = "NORMAL";
+
+				if (temperatureReadingValue > 30 && !isRainingValue) {// both false
+				  weatherAlertValue = temperatureReadingValue > 40 ? "EXTREME HEAT" : "HOT DAY"; // HOT DAY
+				}
+
+				console.log(weatherAlertValue); //HOT DAY
+
+				let scoreValueA = 40;
+				let hasSpecialAccessValueA = true;
+				let resultMessageValueA = "FAIL";
+
+				if (scoreValueA >= 50 || hasSpecialAccessValueA) { // false , true so this is true hence will run 
+				  resultMessageValueA = "PASS"; // mutation. PASS
+				}
+
+				console.log(resultMessageValueA); // PASS
+
+				let isMemberValueB = true;
+				let hasPaidValueB = false;
+				let accessStatusValueB = "BLOCKED";
+
+				if (isMemberValueB && hasPaidValueB) {// true, false 
+				  accessStatusValueB = "ACTIVE"; // will not run
+				} else {
+				  accessStatusValueB = "INACTIVE"; // will run INACTIVE through mutation
+				}
+
+				console.log(accessStatusValueB); // INACTIVE
+
+				let isSystemOfflineValueC = false;
+				let systemMessageValueC = "RUNNING";
+
+				if (!isSystemOfflineValueC) {// true
+				  systemMessageValueC = "ONLINE"; // changed to ONLINE through mutation
+				}
+
+				console.log(systemMessageValueC); // ONLINE
+
+				let temperatureValueD = 28;
+				let isCloudyValueD = true;
+				let weatherResultValueD = "NORMAL";
+
+				if (temperatureValueD > 25 && isCloudyValueD) {// true, true
+				  weatherResultValueD = temperatureValueD > 30 ? "HOT" : "WARM"; // false so it will choose else block which is WARM
+				}
+
+				console.log(weatherResultValueD); // WARM through mutation.
+
+				let pointsValueH = 55;
+				let bonusValueH = 10;
+				let hasCertificateValueH = false;
+				let finalResultValueH = "FAIL";
+
+				if ((pointsValueH + bonusValueH >= 70 && hasCertificateValueH) || pointsValueH >= 65) { //false, false
+				  finalResultValueH = "PASS"; // will not run
+				}
+
+				console.log(finalResultValueH); //FAIL
+
+				let isActiveValueI = true;
+				let hasSuspensionValueI = false;
+				let isVerifiedValueI = true;
+				let accountStatusValueI = "BLOCKED";
+
+				if (isActiveValueI && !hasSuspensionValueI && isVerifiedValueI) { // true, true, true
+				  accountStatusValueI = "OPEN"; // OPEN , mutation
+				}
+
+				console.log(accountStatusValueI); // OPEN
+
+				let temperatureValueJ = 32;
+				let isStormValueJ = false;
+				let isHolidayValueJ = true;
+				let alertStatusValueJ = "NORMAL";
+
+				if ((temperatureValueJ > 30 || isStormValueJ) && !isHolidayValueJ) { // true, false, true
+				  alertStatusValueJ = temperatureValueJ > 35 ? "EXTREME HEAT" : "HEAT"; // will not run
+				}
+
+				console.log(alertStatusValueJ); // NORMAL
+
+				let valueOneK = 5;
+				let valueTwoK = "5";
+				let resultValueK = "NO MATCH";
+
+				if (valueOneK === valueTwoK || valueOneK > 3) { // false || true = true
+				  resultValueK = "MATCH"; // MATCH , mutation
+				}
+
+				console.log(resultValueK); // MATCH
+
+				let scoreValueL = 68;
+				let bonusValueL = 5;
+				let hasExtraCreditValueL = false;
+				let finalStatusValueL = "FAIL";
+
+				if ((scoreValueL + bonusValueL >= 75 && hasExtraCreditValueL) || scoreValueL >= 70) { // false && false = false || false = false
+				  finalStatusValueL = "PASS"; // will not run 
+				}
+
+				console.log(finalStatusValueL); // FAIL
+
+				let inputValueM = "";
+				let fallbackValueM = "DEFAULT";
+				let outputValueM = "NONE";
+
+				if (inputValueM || fallbackValueM) { // false || true = true 
+				  outputValueM = inputValueM ? "INPUT USED" : "FALLBACK USED"; // false = run FALLBACK USED, mutation ran
+				}
+
+				console.log(outputValueM); // FALLBACK USED
+
+				let temperatureValueN = 38;
+				let isHumidValueN = true;
+				let warningLevelValueN = "LOW";
+
+				if ((temperatureValueN > 35 && isHumidValueN) || temperatureValueN > 45) { // (true && true) || false = true || false = true
+				  warningLevelValueN = temperatureValueN > 40 ? "EXTREME" : "HIGH"; // HIGH. mutation
+				}
+
+				console.log(warningLevelValueN); // HIGH
+
+				let baseScoreValueO = 60;
+				let bonusScoreValueO = 15;
+				let isCertifiedValueO = true;
+				let resultValueO = "FAIL";
+
+				if ((baseScoreValueO + bonusScoreValueO > 80 && isCertifiedValueO) || baseScoreValueO > 70) { // false && true = false || false = false
+				  resultValueO = "PASS"; // will not run
+				}
+
+				console.log(resultValueO); // FAIL
+
+				let inputValueP = "0";
+				let thresholdValueP = 0;
+				let statusValueP = "LOW";
+
+				if ((inputValueP && thresholdValueP === 0) && inputValueP !== 0) { // true && true = true && true = true
+				  statusValueP = "HIGH"; // HIGH
+				}
+
+				console.log(statusValueP); // HIGH
+
+				let temperatureValueQ = 36;
+				let isHumidValueQ = false;
+				let isStormValueQ = true;
+				let alertValueQ = "NONE";
+
+				if (((temperatureValueQ > 30 && !isHumidValueQ) || isStormValueQ) && temperatureValueQ < 40) { // true && true = true || true = true
+				  alertValueQ = temperatureValueQ > 35 ? "WARNING" : "NOTICE"; // WARNING
+				}
+
+				console.log(alertValueQ); // WARNING
+
+				let baseValueR = 25;
+				let bonusValueR = 10;
+				let isVIPValueR = false;
+				let hasOverrideValueR = true;
+				let finalStatusValueR = "BLOCKED";
+
+				if (
+				    ((baseValueR + bonusValueR >= 40 && isVIPValueR) || hasOverrideValueR)
+				    && baseValueR !== "25" // (false && false) || false > false || false = false
+				) {
+				    finalStatusValueR = (baseValueR > 30 || isVIPValueR) ? "GRANTED" : "LIMITED"; // will not run
+				}
+
+				console.log(finalStatusValueR); // LIMITED
+
+				let baseValueS = 30;
+				let bonusValueS = 15;
+				let isVIPValueS = true;
+				let hasOverrideValueS = false;
+				let finalStatusValueS = "BLOCKED";
+
+				if (
+				    ((baseValueS + bonusValueS > 50 && isVIPValueS) || hasOverrideValueS)
+				    && baseValueS !== "30" // (30 + 15 = 45) (45 > 50 = false) (false && true = false) (false || false = false) && (30 !== "30" = true) (false && true) = false  			   
+				) {
+				    finalStatusValueS = (baseValueS >= 30 && isVIPValueS) ? "GRANTED" : "LIMITED"; // false && true "LIMITED"
+				}
+
+				console.log(finalStatusValueS); //LIMITED
+
+				let baseValueT = 40;
+				let bonusValueT = 5;
+				let isVIPValueT = false;
+				let hasOverrideValueT = true;
+				let finalStatusValueT = "BLOCKED";
+
+				if (
+				    ((baseValueT + bonusValueT >= 50 && isVIPValueT) || hasOverrideValueT)
+				    && baseValueT === 40
+				) { // (40 + 5 = 45) to (45 >= 50 && false) to (false && false) || true && 40 === 40 to false || true && true to false || true = true 
+				    finalStatusValueT = (baseValueT > 35 && !isVIPValueT) ? "GRANTED" : "LIMITED"; // (40 > 35 && true) to true && true = true ? "GRANTED" //GRANTED
+				}
+
+				console.log(finalStatusValueT); // GRANTED
+
+
+			</script>
+
+
+	<!-- FUNCTIONS -->
+	<!-- BASIC SYNTAX
+
+		 function sayWelcome() {
+		     console.log("Welcome!");
+		 }
+
+		 sayWelcome();
+
+		 Output = Welcome!
+
+		 function → keyword
+		 functionName → name you choose
+		 () → parameters go here later
+		 {} → function body
+		 Code inside runs only when called -->
+
+		<!-- Truthy rule:
+				All non-empty strings are truthy.
+				Functions don’t change that.
+
+			 Parentheses rule:
+			    Use them when mixing && and || or when you want clarity. -->
+
+		<!-- PRIMITIVES - affect mutation & reassignment. Primitives basic data types that are stored 		  directly in memory. They are not objects. They are copied by value. They 					    cannot be mutated — only reassigned. -->
+
+		<!-- Samples -->
+
+			<script>
+				function showStatus() {
+					let statusValueU = "ACTIVE";
+					console.log(statusValueU);
+				}
+
+				showStatus();
+
+				function displayMessage() {
+					let messageValueQ = "SYSTEM READY";
+					console.log(messageValueQ);
+				}
+
+				displayMessage();
+				displayMessage();
+
+				function calculateTotal() {
+					let baseAmountR = 50;
+					let taxRateR = 0.1;
+					console.log(finalAmountR = baseAmountR * taxRateR);
+				}
+
+				calculateTotal();
+
+				function checkMode() {
+					let modeStateS = "DEBUG";
+					console.log(modeStateS);
+				}
+
+				checkMode();
+				// console.log(modeStateS);
+
+				function computeArea() {
+					let widthValueW = 8;
+					let heightValueW = 6;
+					let areaResultW = widthValueW * heightValueW;
+					console.log(areaResultW);
+				}
+
+				computeArea();
+
+				function applyDiscount() {
+					let originalPriceX = 200;
+					let discountRateX = 0.15;
+					let finalPriceX = originalPriceX - (originalPriceX * discountRateX);
+					console.log(finalPriceX);
+				}
+
+				applyDiscount();
+
+				function processScore() {
+					let baseScoreY = 40;
+					let bonusScoreY = 15;
+					let penaltyScoreY = 5;
+					let finalScoreY = baseScoreY + bonusScoreY - penaltyScoreY;
+					console.log(finalScoreY);
+				}
+
+				processScore();
+
+				function calculateCompletion() {
+				    let completedTasksZ = 18;
+				    let totalTaskZ = 24;
+
+				    let completionRateZ = (completedTasksZ / totalTaskZ) * 100;
+
+				    console.log(completionRateZ + "%");
+				}
+
+				calculateCompletion();
+
+				function calculateInvoice() {
+					let unitPriceAA = 45;
+					let quantityAA = 3;
+					let taxRateAA = 0.08;
+					let invoiceTotal = (unitPriceAA * quantityAA) * taxRateAA;
+					console.log(invoiceTotal);
+				}
+
+				calculateInvoice();
+
+				function adjustBalance() {
+					let accountBalanceBB = 500;
+					let finalBalance = (accountBalanceBB * 1.05) + 50 - 120;
+					console.log(finalBalance);
+				}
+
+				adjustBalance();
+
+				function temperatureCheck() {
+					let morningTempCC = 24;
+					let afternoonTempCC = 32;
+					let differenceCC = afternoonTempCC - morningTempCC;
+					console.log(morningTempCC);
+					console.log(afternoonTempCC);
+					console.log(differenceCC);
+				}
+
+				temperatureCheck();
+
+				function computeTaxOnly() {
+					let baseValueDD = 80;
+					let taxRateDD = 0.12;
+					totalTax = baseValueDD * taxRateDD;
+					console.log(totalTax);
+				}
+
+				computeTaxOnly();
+
+				function checkScore() {
+					let scoreII = 65;
+					let passingScoreII = 70;
+					let resultII = "FAIL";
+
+					if(scoreII >= passingScoreII) {
+						resultII = "PASS" 
+					}
+
+					console.log(resultII);
+				}
+
+				checkScore();
+
+				function checkTemperature() {
+					let temperatureKK = 35;
+					let limitKK = 30;
+					let statusKK = "NORMAL";
+
+					if(temperatureKK > limitKK) {
+						statusKK = "HIGH";
+					}
+
+					console.log(statusKK);
+				}
+
+				checkTemperature();
+
+				function checkStock() {
+					let stockLL = 3;
+					let minimumRequiredLL = 5;
+					let stockStatusLL = "AVAILABLE";
+
+					if(stockLL < minimumRequiredLL) {
+						stockStatusLL = "LOW STOCK";
+					}
+
+					console.log(stockStatusLL);
+				}
+
+				checkStock();
+
+				function validateEntry() {
+					let hasPassMM = true;
+					let hasSignatureMM = false;
+					let entryStatusMM = "DENIED";
+
+					if(hasPassMM && hasSignatureMM) {
+						entryStatusMM = "DENIED";
+					} 
+
+					console.log(entryStatusMM);
+				}
+
+				validateEntry();
+
+				function checkRoleAccess() {
+					let roleNN = "EDITOR";
+					let accessLevelNN = "RESTRICTED";
+
+					if(roleNN === "ADMIN" || roleNN === "EDITOR") {
+						accessLevelNN = "FULL ACCESS";
+					}
+
+					console.log(accessLevelNN);
+				}
+
+				checkRoleAccess();
+
+				function evaluateUser() {
+					let isMember00 = true;
+					let hasPaid00 = false;
+					let isAdmin00 = false;
+					let accessResult00 = "DENIED";
+
+					if(isAdmin00 || (isMember00 && hasPaid00)) {
+						accessResult00 = "GRANTED"; // false || false = false, if block did not run, mutation did not happen
+					}
+
+					console.log(accessResult00); // does not print
+				}
+
+				evaluateUser(); // DENIED
+
+				function checkAccessLevel() {
+					let isLoggedPP = true;
+					let isVerifiedPP = true;
+					let isBannedPP = false;
+					let accessStatePP = "LOCKED";
+
+					if(isLoggedPP && isVerifiedPP && !isBannedPP) { // true && true && true = true
+						accessStatePP = "UNLOCKED" // mutation, reassigned to UNLOCKED
+					}
+
+					console.log(accessStatePP); // UNLOCKED
+				}
+
+				checkAccessLevel(); // UNLOCKED
+
+				function reviewPermission() {
+				  let roleQQ = "MODERATOR";
+				  let hasClearanceQQ = false;
+				  let permissionQQ = "NO ACCESS";
+
+				  if (roleQQ === "ADMIN" || (roleQQ === "MODERATOR" && hasClearanceQQ)) {
+				    permissionQQ = "GRANTED";
+				  }
+
+				  console.log(permissionQQ);
+				}
+
+				reviewPermission();
+
+				function checkSystemState() {
+					let isSystemActiveRR = false;
+					let systemMessageRR = "RUNNING";
+
+					if(!isSystemActiveRR) { //true
+						systemMessageRR = "STOPPED" // mutation happened, reassigned to STOPPED
+					}
+
+					console.log(systemMessageRR); // STOPPED
+				}
+
+				checkSystemState(); // STOPPED
+
+				function checkEntryAAA() {
+					let isEmployeeAAA = true;
+					let hasBadgeAAA = false;
+					let doorUnlockAAA = false;
+
+					if(isEmployeeAAA && hasBadgeAAA) { // true && false = false
+						doorUnlockAAA = true; // no mutation
+					}
+
+					console.log(doorUnlockAAA); // false
+				}
+
+				checkEntryAAA(); // prints false
+
+				function checkSystemAAA() {
+					let isOnlineAAA = true;
+					let hasPowerAAA = true;
+					let isOverloadedAAA = true;
+					let systemStatusAAA = "STABLE";
+
+					if(isOnlineAAA && hasPowerAAA && isOverloadedAAA) { // true && true && true = true 
+						systemStatusAAA = "CRITICAL"; // mutation, reassigned to CRITICAL
+					}
+
+					console.log(systemStatusAAA); // prints CRITICAL
+				} 
+
+				checkSystemAAA(); /// CRITICAL
+
+				function checkAccessAAA() {
+					let hasPasswordAAA = true;
+					let has2FAAAA = false;
+					let isLockedAAA = false;
+					let accessGrantedAAA = false;
+
+					if(hasPasswordAAA && (has2FAAAA || !isLockedAAA)) { // true && (false || true) >
+						// true && true = true
+						accessGrantedAAA = true; // mutation, true
+					}
+
+					console.log(accessGrantedAAA); // true
+				}
+
+				checkAccessAAA(); // true
+
+				function checkSecurityAAA() {
+					let isLoggedInAAA = true;
+					let hasSubscriptionAAA = false;
+					let isSuspendedAAA = false;
+					let accessLevel1AAA = "NONE"
+
+					if(isLoggedInAAA && hasSubscriptionAAA && !isSuspendedAAA) { // true && false && true = false
+						accessLevel1AAA = "FULL"; // if did not run, NONE
+					}
+
+					console.log(accessLevel1AAA); // NONE
+				}
+
+				checkSecurityAAA(); // NONE
+
+				function checkConflictAAA() {
+					let isOnlineAAA = true;
+					let isOfflineAAA = false;
+					let statusAAA = "UNKNOWN";
+
+					if(isOnlineAAA && isOfflineAAA) { // true && false = false 
+						statusAAA = "ERROR"; // reassignment, if block did not run ERROR
+					}
+
+					console.log(statusAAA); // UNKNOWN
+				}
+
+				checkConflictAAA(); // UNKNOWN
+
+				function checkPaymentAAA() {
+					let hasCardAAA = true;
+					let hasFundsAAA = false;
+					let isBlockedAAA = false;
+					let paymentStatusAAA = "PENDING";
+
+					if(hasCardAAA && hasFundsAAA && !isBlockedAAA) { // true && false && false = false
+						paymentStatusAAA = "APPROVED"; // if block wont run, no reassignment
+					}
+					
+					console.log(paymentStatusAAA); // PENDING
+				}
+
+				checkPaymentAAA(); // PENDING
+
+				function checkPermissionRR() {
+					let isUserRR = true;
+					let isModeratorRR = false;
+					let isActiveRR = false;
+					let permissionRR = "BLOCKED";
+
+					if((isUserRR || isModeratorRR) && isActiveRR) { // (true || false) && false > true && false = false
+						permissionRR = "ALLOWED" // if did not run, BLOCKED
+					}
+
+					console.log(permissionRR); // BLOCKED
+				}
+
+				checkPermissionRR(); // BLOCKED
+
+				function checkPriorityRR() {
+					let isVIPRR = false;
+					let isStaffRR = true;
+					let hasPassRR = true;
+					let isOpenRR = false;
+					let accessRR = "DENIED"
+
+					if((isVIPRR || isStaffRR) && (isOpenRR || hasPassRR)) { // (false || true) && (false || true) > true && true = true
+						accessRR = "GRANTED"; // GRANTED
+					}
+
+					console.log(accessRR); // GRANTED
+				}
+
+				checkPriorityRR(); // GRANTED
+
+				function checkSystemRR() {
+					let isConnectedRR = true;
+					let hasPowerRR = true;
+					let isMaintenanceRR = false;
+					let isEmergencyRR = false;
+					let systemStateRR = "OFFLINE"
+
+					if((isConnectedRR && hasPowerRR) && (!isMaintenanceRR || isEmergencyRR)) { // (true && true) && (true || false) > true && true = true
+						systemStateRR = "ONLINE"; // ONLINE
+					}
+
+					console.log(systemStateRR); // ONLINE
+				}
+
+				checkSystemRR(); // ONLINE
+
+				function checkFinalGateRR() {
+					let isVerifiedRR = true;
+					let hasTokenRR = false;
+					let isAdminRR = false;
+					let isOnlineRR = true;
+					let gateStatusRR = "CLOSED";
+
+					if((isVerifiedRR && isOnlineRR) && (isAdminRR || hasTokenRR)) { // (true && true) && (false || false) > true && false = false
+						gateStatusRR = "OPEN" // CLOSED
+					}
+
+					console.log(gateStatusRR); // CLOSED
+				}
+
+				checkFinalGateRR(); // CLOSED
+
+				function checkAccountRR() {
+					let usernameRR = "norman";
+					let passwordRR = "12345";
+					let isEmailVerifiedRR = true;
+					let isSuspendedRR = false;
+					let statusRR = "INACTIVE";
+
+					if(usernameRR !== "" && passwordRR.length >= 5 && isEmailVerifiedRR && !isSuspendedRR) { // true && true && true && true = true
+						statusRR = "ACTIVE" // ACTIVE
+					}
+
+					console.log(statusRR); // ACTIVE
+				}
+
+				checkAccountRR(); // ACTIVE
+
+				function checkSecureLoginRR() {
+					let usernameRR = "admin";
+					let passwordRR = "secure123";
+					let has2FARR = false;
+					let isLockedRR = false;
+					let roleRR = "user";
+					let loginStatusRR = "DENIED";
+
+					if(usernameRR.length > 0 && passwordRR.length >= 8 && !isLockedRR && (roleRR === "admin" || has2FARR === true)) { // true && true && true && (false || false) > true && false = false
+						loginStatusRR = "APPROVED" // DENIED
+					}
+
+					console.log(loginStatusRR); // DENIED
+				}
+
+				checkSecureLoginRR(); // DENIED
+
+				function approvePurchaseAA() {
+				  let buyerNameAA = "Norman";
+				  let paymentMethodAA = "gcash";
+				  let totalAA = 999;
+				  let isFraudAA = false;
+				  let isVIPAA = false;
+				  let purchaseStatusAA = "DENIED";
+
+				  if(buyerNameAA !== "" && (paymentMethodAA === "gcash" || paymentMethodAA === "card") && totalAA >= 0 && (isVIPAA === true || totalAA >= 1000)) { // true && true && true && (false || false) > true && false = false
+				  }
+
+				  console.log(purchaseStatusAA); // DENIED
+				}
+
+				approvePurchaseAA(); // DENIED
+
+				function grantDashboardAccessBB() {
+				  let tokenBB = "abc123";
+				  let isBannedBB = false;
+				  let tierBB = "pro";
+				  let hasMfaBB = false;
+				  let backupCodeBB = "12AB34CD";
+				  let accessStateBB = "DENIED";
+
+				  if(tokenBB !== "" && isBannedBB && (tierBB === pro || tierBB === "enterprise") && (hasMfaBB === true || backupCodeBB.length === 8)) { // true && true && (true) && (false || true) > true && true = true
+				  	  accessStateBB = "GRANTED" // DENIED
+				  }
+
+				  console.log(accessStateBB); // DENIED
+				}
+
+				grantDashboardAccessBB(); // DENIED
+
+				function approveRequestCC() {
+				  let isVerifiedCC = true;
+				  let isSuspendedCC = false;
+				  let requestLevelCC = 3;
+				  let approvalCC = "DENIED";
+
+				  if (isVerifiedCC && !isVerifiedCC && !isSuspendedCC && requestLevelCC >= 3) {
+				    approvalCC = "APPROVED"; // true && false && true && true
+				  }
+
+				  console.log(approvalCC); // DENIED
+				}
+
+				approveRequestCC(); // DENIED
+
+				function authorizeWithdrawalDD() {
+				  let accountHolderDD = "Miguel";
+				  let balanceDD = 5000;
+				  let withdrawAmountDD = 4000;
+				  let isFrozenDD = false;
+				  let pinAttemptsDD = 3;
+				  let hasOverrideDD = true;
+				  let withdrawalStatusDD = "DENIED";
+
+				  if(accountHolderDD !== "" && balanceDD > withdrawAmountDD && withdrawAmountDD > 0 && isFrozenDD === false && (pinAttemptsDD < 3 || hasOverrideDD === true)) {
+				  	withdrawalStatusDD = "AUTHORIZED" // true && true && true && true && (false || true) > true && true = true
+				  }  
+				  
+				  console.log(withdrawalStatusDD); // AUTHORIZED
+				}
+
+				authorizeWithdrawalDD(); // AUTHORIZED
+
+				function unlockPremiumEE() {
+				  let isLoggedInEE = true;
+				  let isSuspendedEE = false;
+				  let subscriptionEE = "gold";
+				  let creditsEE = 0;
+				  let hasLifetimeAccessEE = false;
+				  let accessStatusEE = "LOCKED";
+
+				  if(isLoggedInEE && isSuspendedEE && subscriptionEE === "gold" || subscriptionEE === "platinum" && (creditsEE > 0 || !hasLifetimeAccessEE)) {
+				  	accessStatusEE = "UNLOCKED" // true && false && true && (false || true) > false && true = false
+				  }
+
+				  console.log(accessStatusEE); // LOCKED
+				}
+
+				unlockPremiumEE(); // LOCKED
+
+				function testExample() {
+				  let isOnline = true;
+				  let message;
+
+				  if (isOnline) {
+				    message = "User is online";
+				  } else {
+				    message = "User is offline";
+				  }
+
+				  console.log(message);
+				}
+
+				testExample();
+
+				function validatePaymentGG() {
+					let cardNumberGG = "1234567890123456";
+					let cvvGG = "123";
+					let amountGG = 0;
+					let paymentStatusGG = "PENDING";
+
+					if(cardNumberGG.length > 0 && cvvGG.length === 3 && amountGG > 0) {
+						paymentStatusGG = "PAYMENT APPROVED";
+						// true && true && false = false
+					} else {
+						paymentStatusGG = "PAYMENT DECLINED";
+					}
+
+					console.log(paymentStatusGG); // PAYMENT DECLINED
+				}
+
+				validatePaymentGG(); // PAYMENT DECLINED
+
+				function testHH() {
+					let isValidHH = false;
+
+					if(isValidHH = true) {
+						console.log("VALID");
+					} else {
+						console.log("INVALID")
+					}
+				}
+
+				testHH();
+
+				function testII() {
+				  let valueII = "0";
+
+				  if (valueII) {
+				    console.log("HAS VALUE");
+				  } else {
+				    console.log("EMPTY");
+				  }
+				}
+
+				testII();
+
+				function testJJ() {
+				  let isMemberJJ = false;
+				  let isAdminJJ = true;
+				  let hasAccessJJ = false;
+
+				  if (isMemberJJ && isAdminJJ || hasAccessJJ) {
+				    console.log("ACCESS GRANTED");
+				  } else {
+				    console.log("ACCESS DENIED");
+				  }
+				}
+
+				testJJ();
+
+				function testMM() {
+					let isApprovedMM = false;
+					let scoreMM = 0;
+
+					if(isApprovedMM = scoreMM >50) {
+						console.log("APPROVED");
+					} else {
+						console.log("REJECTED"); // prints REJECTED
+					}
+					// 0 > 50 = false
+				}
+
+				function testNN() {
+				  let flagNN = true;
+				  let valueNN = 10;
+
+				  if (flagNN = valueNN) {
+				    console.log("YES");
+				  } else {
+				    console.log("NO");
+				    // if (10), truthy hence if block ran
+				  }
+				}
+
+				testNN(); // YES
+
+				function testOO() {
+				  let flagOO = true;
+				  let valueOO = 0;
+
+				  if (flagOO = valueOO) {
+				    console.log("YES");
+				  } else {
+				    console.log("NO");
+				  }
+				  // if(0) falsy
+				}
+
+				testOO(); // NO
+
+				function testPP() {
+					let tokenPP = "";
+					let isAdminPP = true;
+					let isEnabledPP = true;
+
+					if(tokenPP && isAdminPP || isEnabledPP) {
+						console.log("ALLOW");
+					} else {
+						console.log("BLOCK");
+					// (false && true) || true > false || true = true
+					}
+				}
+
+				testPP(); // ALLOW
+
+				let x = "";
+				let y = 0;
+				let z = true;
+
+				if (x || y && z) {
+				  console.log("YES");
+				} else {
+				  console.log("NO");
+				}
+				// if(false || (false && true)) > false || false = false
+
+			</script>
+
+
+		<!-- IF ELSE IF Multi-branch Priority Control 
+			    else if's purpose is to create a prioritized decision tree.
+			 Structure:
+
+			 if (condition1) {
+			   // runs if condition1 is true
+			 } else if (condition2) {
+			   // runs ONLY if condition1 is false AND condition2 is true
+			 } else {
+			   // runs if all above are false
+			 }
+			 
+			 Important rule:
+
+			 👉 JavaScript checks from top to bottom.
+			 👉 The FIRST true condition runs.
+			 👉 The rest are skipped.
+
+			 This is called first-match priority. -->
+
+
+		<!-- Samples -->
+			
+			<script>
+
+			    let pointsRR = 85;
+
+			    if (pointsRR >= 90) {
+			        console.log("A");
+			    } else if (pointsRR >= 80) {
+			        console.log("B");
+			    } else if (pointsRR >= 70) {
+			        console.log("C");
+			    } else {
+			        console.log("F");
+			    }
+
+			    function calculateShippingUU() {
+			        let weightUU = 8;
+			        let shippingTypeUU = "";
+
+			        if (weightUU <= 0) {
+			            shippingTypeUU = "Invalid weight";
+			        } else if (weightUU <= 5) {
+			            shippingTypeUU = "Standard Shipping";
+			        } else if (weightUU <= 20) {
+			            shippingTypeUU = "Express Shipping";
+			        } else {
+			            shippingTypeUU = "Freight Shipping";
+			        }
+
+			        console.log(shippingTypeUU);
+			    }
+
+			    calculateShippingUU();
+
+			    function evaluatePerformanceYY() {
+			        let performanceScoreYY = 89;
+			        let performanceLabelYY = "";
+
+			        if (performanceScoreYY >= 90) {
+			            performanceLabelYY = "Excellent";
+			        } else if (performanceScoreYY >= 75) {
+			            performanceLabelYY = "Good";
+			        } else if (performanceScoreYY >= 50) {
+			            performanceLabelYY = "Average";
+			        } else if (performanceScoreYY >= 0) {
+			            performanceLabelYY = "Poor";
+			        } else {
+			            performanceLabelYY = "Invalid Score";
+			        }
+
+			        console.log(performanceLabelYY);
+			    }
+
+			    evaluatePerformanceYY();
+
+			    function classifyTemperatureYY() {
+			        let temperatureYY = 35;
+			        let temperatureStatusYY = "";
+
+			        if (temperatureYY > 60) {
+			            temperatureStatusYY = "Invalid Temperature";
+			        } else if (temperatureYY < -50) {
+			            temperatureStatusYY = "Invalid Temperature";
+			        } else if (temperatureYY >= 30) {
+			            temperatureStatusYY = "Hot";
+			        } else if (temperatureYY >= 15) {
+			            temperatureStatusYY = "Warm";
+			        } else if (temperatureYY >= 0) {
+			            temperatureStatusYY = "Cold";
+			        } else {
+			            temperatureStatusYY = "Freezing";
+			        }
+
+			        console.log(temperatureStatusYY);
+			    }
+
+			    classifyTemperatureYY();
+
+			    function classifyLoanRiskYY() {
+			        let creditScoreYY = 720;
+			        let riskLevelYY = "";
+
+			        if (creditScoreYY > 850) {
+			            riskLevelYY = "Invalid Score"; // continue
+			        } else if (creditScoreYY < 300) {
+			            riskLevelYY = "Invalid Score"; // continue
+			        } else if (creditScoreYY >= 750) {
+			            riskLevelYY = "Low Risk";
+			        } else if (creditScoreYY >= 650) { 
+			            riskLevelYY = "Moderate Risk"; // executes
+			        } else if (creditScoreYY >= 550) { 
+			            riskLevelYY = "High Risk";
+			        } else {
+			            riskLevelYY = "Very High Risk";
+			        }
+
+			        console.log(riskLevelYY);
+			    }
+
+			    classifyLoanRiskYY();
+
+
+			</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html

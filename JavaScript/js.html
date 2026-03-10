@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>This is my JS practice file</title>
+</head>
+<body>
+
+<!-- js tag -->
+<!-- <script src="./index.js"></script> -->
+
+</body>
+	<h1>Javascript Basics</h1>
+
+	<!-- PART 1 VARIABLES -->
+
+		<!-- Challenge 1: Declare Variables
+		Create a variable name using let
+		Assign your name as a string
+		Create a constant birthYear
+		Assign a number
+		Log both -->
+
+		<script>
+			let myName = "Norman";
+			const birthYear = 1983;
+			console.log(myName);
+			console.log(birthYear);
+		</script>
+
+		<!-- Challenge 2: Change a Variable Goal: Reassignment
+		Declare let age = 20
+		Change its value to 25
+		Log age -->
+
+		<script>
+			let age = 20;
+			age = 30;
+			console.log(age);
+		</script>
+
+		<!-- Challenge 3: Const Cannot Change 
+		Declare const country = "Philippines"
+		Try changing its value
+		Observe the console error -->
+
+		<script>
+			const country = "Philippines";
+			// Reassingning cause error: Uncaught TypeError: Assignment to constant variable. at index.html:48:11 
+			// country = "Malaysia" 
+			console.log(country);
+		</script>
+
+
+	<!-- PART 2 EXPRESSIONS (These expressions can be written w/o "let or const".)-->
+
+		<!-- Challenge 4: Math Expressions
+		Create let x = 10
+		Create let y = 2
+		Create variables for:
+			sum
+			difference
+			product
+			quotient
+		Log all results -->
+
+		<script>
+			let x = 10;
+			let y = 16;
+
+			// sum
+			let sum = x + y;
+			console.log(sum);
+
+			// difference
+			difference = x - y;
+			console.log(difference);
+
+			// product
+			product = x * y;
+			console.log(product);
+
+			// quotient
+			let quotient = x / y;
+			console.log(quotient);
+		</script>
+
+		<!-- Challenge 5: String Expression 
+		Create firstName
+		Create lastName
+		Combine them into fullName
+		Log fullName -->
+
+		<script>
+			let firstName = "Jarred";
+			let lastName = "Goff";
+			let fullName = firstName + " " + lastName;
+			console.log(fullName)
+		</script>
+
+		<!-- Challenge 6: Simple Boolean Expressions 
+		Create an expression that checks if 10 > 5
+		Create an expression that checks if 5 === "5"
+		Log both results -->
+
+		<script>
+			// Create an expression that checks if 10 > 5
+			let isThisEqual = 10 > 5;
+			console.log(isThisEqual);
+
+			// Create an expression that checks if 5 === "5"
+			let equalNoteEqual = 5 === "5";
+			console.log(equalNoteEqual);
+		</script>
+
+
+	<!-- PART 3: SIMPLE STATEMENTS (NO COMPLEX LOGIC) -->
+	
+		<!-- Challenge 7: Console Statement
+		Create a variable message
+		Assign any string
+		Use console.log() to display it -->
+
+		<script>
+			variableMessage = ("The Rams win!");
+			console.log(variableMessage);
+
+			let anotherVariableMessage = ("The Bears have been eliminated.");
+			console.log(anotherVariableMessage);
+		</script>
+
+		<!-- Challenge 8: Simple If Statement (Single Condition)
+		Create let isLoggedIn = true
+		If isLoggedIn is true, log "Welcome!"
+		👉 No else yet. -->
+
+		<script>
+			let isLoggedIn = true;
+			if (isLoggedIn === true){
+				console.log("Welcome!");
+			} 
+
+			// if you change the value from "true" to "false", the code will not run
+			let isNotLoggedIn = false;
+			if (isNotLoggedIn === true){
+				console.log("Welcome!");
+			}
+		</script>
+
+		<!-- Challenge 9: If with Expression 
+		Create let score = 85
+		If score >= 75, 
+		log "Passed" -->
+		
+		<script>
+			let score = 85;
+			if (score >= 75);
+			console.log("Passed");
+		</script>
+
+
+	<!-- PART 4: OBJECTS (PROPERTIES & VALUES ONLY) -->
+	
+		<!-- Challenge 10: Create a Simple Object 
+		Create an object called user
+		Add properties:
+			username
+			email
+			age
+		Log the entire object -->
+
+		<script>
+			// It's advisable to use "const" for objects instead of "let" to avoid reassignment of variables since "const" cannot be reassign.
+			// Use , when creating a code block for objects instea of;
+			const user = {
+				username: "Jovan Buha",
+				email: "jovan.b@gmail.com",
+				age: 40
+			}
+			console.log(user);
+		</script>
+
+		<!-- Challenge 11: Access Properties
+		Log the username using dot notation
+		Log the email using bracket notation -->
+
+		<script>
+			// Log the username using dot notation
+			console.log(user.username);
+
+			// Log the email using bracket notation
+			console.log([user.email]);
+		</script>
+
+		<!-- Challenge 12: Update Object Values 
+		Change the age
+		Log the updated object -->
+
+		<script>
+			user.age = 50;
+			console.log(user);
+		</script>
+
+		<!-- Challenge 13: Add a New Property
+		Add a new property isActive
+		Assign it a boolean value
+		Log the object -->
+
+		<script>
+			user.isActive = true;
+			console.log(user);
+		</script>
+
+
+	<!-- PART 1: STRINGS -->
+
+		<!-- Challenge 1: Basic String
+		Create a variable called myFirstName
+		Assign a string value using double quotes
+		Log the value to the console
+		-->
+
+		<script>
+		  let myFirstName = "Rocky";
+		  console.log(myFirstName);
+		</script>
+
+		<!-- Challenge 2: String with Numbers
+		Create a variable called zipCode
+		Assign "1200" as a string
+		Log the value
+		-->
+
+		<script>
+		  zipCode = "1200";
+		  console.log(zipCode);
+		</script>
+
+		<!-- Challenge 3: String Concatenation
+		Create firstName and lastName
+		Combine them into fullName
+		Log fullName
+		-->
+
+		<script>
+		  let anotherFirstName = "Lebron";
+		  anotherLastName = "James";
+		  console.log(anotherFirstName + " " + anotherLastName)
+		</script>
+
+
+	<!-- PART 2: NUMBERS -->
+	
+		<!-- Challenge 4: Whole Numbers
+		Create a variable age
+		Assign a whole number
+		Log age
+		-->
+
+		<script>
+		  let myAge = 43;
+		  console.log(myAge);
+		</script>
+
+		<!-- Challenge 5: Decimal Numbers
+		Create a variable price
+		Assign a decimal number
+		Log price
+		-->
+
+		<script>
+		  price = 59.99;
+		  console.log(price);
+		</script>
+
+		<!-- Challenge 6: Negative Numbers
+		Create a variable temperature
+		Assign a negative number
+		Log temperature
+		-->
+
+		<script>
+		  let temperature = -18;
+		  console.log(temperature);
+		</script>
+
+
+	<!-- PART 3: BOOLEANS -->
+	
+		<!-- Challenge 7: Boolean Values
+		Create isOnline and assign true
+		Create isAdmin and assign false
+		Log both values
+		-->
+
+		<script>
+		  let isOnline = true;
+		  isAdmin = false;
+		  console.log(isOnline, isAdmin);
+		</script>
+
+
+	<!-- PART 4: UNDEFINED & NULL -->
+
+		<!-- Challenge 8: Undefined
+		Declare a variable middleName without assigning a value
+		Log middleName
+		-->
+
+		<script>
+		  let middleName = null;
+		  console.log(middleName);
+		</script>
+
+		<!-- Challenge 9: Null
+		Create a variable selectedItem
+		Assign null
+		Log selectedItem
+		-->
+
+		<script>
+		  selectedItem = null;
+		  console.log(selectedItem);
+		</script>
+
+
+	<!-- PART 5: ARRAYS -->
+	
+		<!-- Challenge 10: Array of Strings
+		Create an array called colors
+		Add at least 3 string values
+		Log the array
+		-->
+
+		<script>
+		  let colors = ["red", "black", "green"];
+		  console.log(colors);
+		</script>
+
+		<!-- Challenge 11: Array with Mixed Data Types
+		Create an array called mixedData
+		Include:
+		- a string
+		- a number
+		- a boolean
+		- null
+		Log the array
+		-->
+
+		<script>
+		  let mixedData = ["String", 7, true, null];
+		  console.log(mixedData);
+		</script>
+
+
+	<!-- PART 6: OBJECTS -->
+	
+		<!-- Challenge 12: Object with Different Data Types
+		Create an object called product
+		Add the following properties:
+		- name (string)
+		- price (number)
+		- inStock (boolean)
+		Log the object
+		-->
+
+		<script>
+		  product = {
+		  	name: "iPhone",
+		  	price: 80000,
+		  	inStock: false
+		  }
+		  console.log(product);
+		</script>
+
+
+	<!-- PART 7: CHECKING DATA TYPES -->
+
+		<!-- Challenge 13: typeof Operator
+		Use typeof to check:
+		- a string
+		- a number
+		- a boolean
+		Log the results
+		-->
+
+		<script>
+			console.log(
+			  typeof(anotherFirstName),
+			  typeof(myAge),
+			  typeof(isAdmin),
+			  typeof(user),
+			  typeof null === middleName,
+			  Array.isArray(colors)
+			);
+		</script>
+
+
+	<!-- PART 1: STRING CONCATENATION -->
+	
+		<!-- Challenge 1: Basic Concatenation
+		Create two variables:
+		- firstName
+		- lastName
+		Concatenate them with a space in between
+		Log the result
+		-->
+
+		<script>
+		  myFullName = firstName + " " + lastName;
+		  console.log(myFullName);
+		</script>
+
+		<!-- Challenge 2: String + String
+		Create two string variables:
+		- city
+		- country
+		Combine them into one sentence
+		Log the result
+		-->
+
+		<script>
+		  let city = "Los Angeles";
+		  let anotherCountry = "USA";
+		  let cityAndCountry = city + " " + anotherCountry;
+		  console.log(cityAndCountry);
+		</script>
+
+		<!-- Challenge 3: String + Number
+		Create:
+		- productName (string)
+		- price (number)
+		Concatenate them into a readable message
+		Log the result
+		-->
+
+		<script>
+		  productName = "iPhone17"
+		  let price = 88000
+		  let message = "The new" + " " + productName + " " + "costs" + " " + price + "!";
+		  console.log(message);
+		</script>
+
+		<!-- Another way to write the code -->
+		<script>
+		  const newProductName = "iPhone17"
+		  const newPrice = 88000
+		  console.log(`The new ${newProductName} costs ${newPrice}!`);
+		</script>
+
+
+	<!-- PART 2: CONCATENATION WITH VARIABLES -->
+	
+		<!-- Challenge 4: Multiple Variable Concatenation
+		Create:
+		- firstName
+		- lastName
+		- age
+		Concatenate all values into one sentence
+		Log the result
+		-->
+
+		<script>
+		  hisFirstName = "Mathew"
+		  hisLastName = "Stafford"
+		  hisAge = 37;
+		  personalInfo = hisFirstName + " " + hisLastName + " " + hisAge;
+		  console.log(personalInfo);
+		  // another way
+		  console.log(hisFirstName, hisLastName, hisAge);
+		</script>
+
+		<!-- Challenge 5: Concatenation with Spaces
+		Create:
+		- word1
+		- word2
+		- word3
+		Concatenate them into a proper sentence with spaces
+		Log the result
+		-->
+
+		<script>
+		  word1 = "It";
+		  word2 = "was";
+		  word3 = "cold";
+		  console.log(word1, word2, word3);
+		</script>
+
+
+	<!-- PART 3: CONCATENATION WITH BOOLEANS -->
+	
+		<!-- Challenge 6: String + Boolean
+		Create:
+		- isOnline (boolean)
+		Concatenate it into a sentence
+		Log the result
+		-->
+
+		<script>
+		  let isHeOnline = true;
+		  sentence = "The user status is online?"
+		  console.log(sentence, isHeOnline);
+		</script>
+
+
+	<!-- PART 4: CONCATENATION WITH EXPRESSIONS -->
+	
+		<!-- Challenge 7: Concatenation with Math Expression
+		Create:
+		- x
+		- y
+		Concatenate the result of x + y into a sentence
+		Log the result
+		-->
+
+		<script>
+		  let xAmount = 500;
+		  let yAmount = 1200;
+		  let computation = xAmount * yAmount;
+		  console.log("What numbers should I add to get to a total of 1700?", xAmount, yAmount);
+		</script>
+
+		<!-- Challenge 8: Concatenation Order
+		Create:
+		- x
+		- y
+		Concatenate x + y inside a string
+		Then concatenate the string + x + y
+		Observe the difference in output
+		-->
+
+		<script>
+		  console.log("What is the total if I add 500 and 1200?", xAmount + yAmount);
+		</script>
+
+
+	<!-- PART 5: CONCATENATION USING TEMPLATE LITERALS -->
+
+		<!-- Challenge 9: Basic Template Literal
+		Create:
+		- firstName
+		- lastName
+		Use template literals to concatenate them
+		Log the result
+		-->
+
+		<script>
+		  console.log(`${myFirstName} ${myAge}`);
+		</script>
+
+		<!-- Challenge 10: Template Literal with Expressions
+		Create:
+		- product
+		- price
+		Use a template literal to include the price
+		Log the result
+		-->
+
+		<script>
+		  console.log(`${productName}, ${newPrice}`);
+		</script>
+
+
+	<!-- PART 6: COMMON CONCATENATION PITFALLS -->
+	
+		<!-- Challenge 11: Number vs String Concatenation
+		Create:
+		- a = 10
+		- b = "5"
+		Concatenate a and b
+		Then concatenate Number(b) and a
+		Log both results
+		-->
+
+		<script>
+		  let a = 10;
+		  let b = "5";
+		  // results to 105
+		  console.log(a + b);
+		  // results to 510 
+		  console.log(b + a);
+		</script>
+
+		<!-- Challenge 12: Debug a Concatenation Issue
+		Create a sentence where numbers accidentally concatenate as strings
+		Fix it so math happens before concatenation
+		Log the corrected result
+		-->
+
+		<script>
+		  // Problem: numbers are treated as strings
+		  let e = "10";
+		  let f = "5";
+
+		  let wrongResult = "The total is " + e + f;
+		  console.log(wrongResult); // "The total is 105"
+
+		  // Fix: force math before concatenation
+		  let correctResult = "The total is " + (Number(a) + Number(b));
+		  console.log(correctResult); // "The total is 15"
+		</script>
+
+
+	<!-- PART 7: ARITHMETIC OPERATORS -->
+
+		<!-- Challenge 1: Addition
+		Create two variables with numbers
+		Add them together
+		Log the result
+		-->
+
+		<script>
+			let c = 7;
+			d = 28;
+			let addThem = c + d;
+			console.log(addThem);
+		</script>
+
+
+		<!-- Challenge 2: Subtraction
+		Create two number variables
+		Subtract the second number from the first
+		Log the result
+		-->
+
+		<script>
+			let h = 28
+			let i = 35
+			let subtractThem = i - h;
+			console.log(subtractThem);
+		</script>
+
+
+		<!-- Challenge 3: Multiplication
+		Create two number variables
+		Multiply them
+		Log the result
+		-->
+
+		<script>
+			j = 42;
+			let k = 49;
+			multiplyThem = j*k;
+			console.log(multiplyThem);
+		</script>
+
+
+		<!-- Challenge 4: Division
+		Create two number variables
+		Divide the first number by the second
+		Log the result
+		-->
+
+		<script>
+			let l = 56;
+			let m = 63;
+			let divideThem = m / l;
+			console.log(divideThem);
+		</script>
+
+
+		<!-- Challenge 5: Modulus (Remainder)
+		Create two number variables
+		Find the remainder when the first number is divided by the second
+		Log the result
+		-->
+
+		<script>
+			n = 11;
+			o = 2;
+			findTheRemainder = n % o;
+			console.log(findTheRemainder);
+		</script>
+
+
+		<!-- Challenge 6: Order of operations
+		Create a calculation that includes addition, multiplication, and parentheses
+		Log the result
+		-->
+
+		<script>
+			let p = 10;
+			let q = 20;
+			// o = 2
+			orderOfOperations = (p * q) / o + (q - o)
+			console.log(orderOfOperations);
+		</script>
+
+
+		<!-- Challenge 7: Increment operator
+		Create a variable with a number
+		Increase its value by 1 using an increment operator
+		Log the result
+		-->
+
+		<script>
+			// Pre Icrement
+			addPre = ++q;
+			console.log(addPre);
+
+			// Post Increment
+			addPost = ++q;
+			console.log(addPost);
+
+			// Pre Decrement
+			lessPre = --q;
+			console.log(lessPre);
+
+			// Post Decrement
+			lessPost = q--;
+			console.log(lessPost);
+		</script>
+
+
+		<!-- Challenge 8: Decrement operator
+		Create a variable with a number
+		Decrease its value by 1 using a decrement operator
+		Log the result
+		-->
+
+		<script>
+			anotherDecrement = p--;
+			console.log(anotherDecrement);
+		</script>
+
+
+		<!-- Challenge 9: Combined arithmetic
+		Create two number variables
+		Add them, then multiply the sum by another number
+		Log the final result
+		-->
+
+		<script>
+			combinedArithmetic = (q + l) * n;
+			console.log(combinedArithmetic);
+		</script>
+
+
+		<!-- Challenge 10: Arithmetic with variables
+		Create a variable called total
+		Start with a number
+		Update total using addition, subtraction, multiplication, or division
+		Log the final value
+		-->
+
+		<script>
+			let total = 100;
+			total = total + total;
+			total = total / q;
+			total = total * n;
+			total = total / o;
+			console.log(total);
+		</script>
+
+
+	<!-- PART 8: ASSIGNMENT OPERATORS -->
+
+		<!-- Challenge 1: Addition assignment (+=)
+		Create a variable called score with a starting value
+		Increase score by 10 using the += operator
+		Log the result
+		-->
+
+		<script>
+			let score1 = 150
+			score1 = score1 += 60;
+			console.log(score1);
+		</script>
+
+
+		<!-- Challenge 2: Subtraction assignment (-=)
+		Create a variable called lives with a starting value
+		Decrease lives by 1 using the -= operator
+		Log the result
+		-->
+
+		<script>
+			lives = 210;
+			lives = lives -= 56;
+			console.log(lives);
+		</script>
+
+
+		<!-- Challenge 3: Multiplication assignment (*=)
+		Create a variable called points with a starting value
+		Double its value using the *= operator
+		Log the result
+		-->
+
+		<script>
+			let points = 156;
+			points = points *= 3;
+			console.log(points);
+		</script>
+
+
+		<!-- Challenge 4: Division assignment (/=)
+		Create a variable called total
+		Divide its value by 2 using the /= operator
+		Log the result
+		-->
+
+		<script>
+			divide = 250;
+			divide = divide /= 50;
+			console.log(divide);
+		</script>
+
+
+		<!-- Challenge 5: Combined assignment operators
+		Create a variable called balance
+		Update balance using at least two different assignment operators
+		Log the final value
+		-->
+
+		<script>
+			balance = 500;
+			balance = balance *= 50;
+			balance = balance /=100;
+			console.log(balance);
+		</script>
+
+
+	<!-- PART 9: COERCION (IMPLICIT / EXPLICIT) -->
+
+		<!--Challenge 1: String + Number coercion
+		Create a string variable and a number variable
+		Add them together
+		Log the result
+		Observe what happens
+		-->
+
+		<script>
+			string = "String";
+			number = 50;
+			stringNumberCombined = string + number;
+			console.log(stringNumberCombined);
+		</script>
+
+
+		<!-- Challenge 2: Fix string coercion
+		Create two variables that hold numbers as strings
+		Convert them to numbers before adding
+		Log the correct sum
+		-->
+
+		<script>
+			let variable1 = "67";
+			let variable2 = "19";
+			// "Number" is used for explicit coercion. "String", "Boolean(1)", "Boolean(2)" can be used as well for explicit coercion.
+			Number(variable1);
+			Number(variable2);
+			let sum1 = variable1 + variable2;
+			console.log(sum1);
+		</script>
+
+
+		<!-- Challenge 3: Boolean coercion
+		Create a variable with a falsy value
+		Use it in an if statement
+		Log a message when the condition is false
+		-->
+
+		<script>
+			falsyVariable = 0;
+			if(falsyVariable){
+				console.log(falsyVariable)
+			}
+		</script>
+
+
+		<!-- Challenge 4: Equality vs strict equality
+		Create two variables with the same value but different data types
+		Compare them using == and ===
+		Log both results
+		-->
+
+		<script>
+			sameValue1 = "67";
+			sameValue2 = 67;
+			let comparison1 = sameValue1 === sameValue2;
+			let comparison2 = sameValue1 == sameValue2;
+			console.log(comparison1);
+			console.log(comparison2);
+		</script>
+
+
+		<!-- Challenge 5: Number coercion with arithmetic
+		Create a string that contains a number
+		Multiply it by a number
+		Log the result
+		Observe how JavaScript handles it
+		-->
+
+		<script>
+			stringWithNumber = "97";
+			multiplyByTwo  = stringWithNumber * 2;
+			console.log(multiplyByTwo);
+		</script>
+
+
+	<!-- COMPARISON OPERATORS -->
+
+	  	<!-- Challenge 1: Equality (==)
+	  	Compare two numbers using ==
+	  	Log the result
+	  	-->
+	  	  <script>
+	  	    isNotString = 89;
+	  	    isString = "89";
+	  	    console.log(89 == "89");
+	  	  </script>
+
+
+	  	<!-- Challenge 2: Strict Equality (===)
+	    Compare a number and a string with the same value
+	    Log the result
+	 	-->
+	  	
+	  	<script>
+	    	let compare = "57" === 57;
+	    	console.log(compare);
+	  	</script>
+
+	    <!-- Challenge 3: Not Equal (!=)
+	    Compare two different values using !=
+	    Log the result
+	  	-->
+	  	
+	  	<script>
+	    	isANumber = 19;
+	    	isNotNumber = "19";
+	    	console.log(isANumber != isNotNumber); 
+	  	</script>
+
+	    <!-- Challenge 4: Greater Than (>)
+	    Compare two numbers using >
+	    Log the result
+	    -->
+	    
+	    <script>
+	    	let greatest = 10987 > 10987;
+	    	console.log(greatest);
+	    </script>
+
+	    <!-- Challenge 5: Less Than or Equal (<=)
+	    Compare two numbers using <=
+	    Log the result
+	    -->
+	  
+	  	<script>
+	    	let lessThan = 687 <= 687;
+	    	console.log(lessThan);
+	  	</script>
+
+
+	<!-- LOGICAL OPERATORS -->
+
+		<!-- Challenge 1: AND (&&)
+		Check if both conditions are true
+		Log the result
+		-->
+		<script>
+		  let aiIsHuman = false; 
+		  let aiIsNotHuman = true;
+
+		  console.log(aiIsHuman && aiIsNotHuman);
+		</script>
+
+		<!-- Challenge 2: OR (||)
+	    Check if at least one condition is true
+	    Log the result
+		-->
+		<script>
+			console.log(aiIsHuman || aiIsNotHuman);
+		</script>
+
+		<!-- Challenge 3: NOT (!)
+	    Use ! to reverse a boolean value
+	    Log the result
+		-->
+		<script>
+		  isNotEven = 10;
+		  console.log(!isNotEven);
+		</script>
+
+		<!-- Challenge 4: AND (&&) with Comparisons
+		Check if a number is greater than 5 AND less than 10
+		Log the result
+		-->
+		<script>
+		  let aa = 5
+		  let bb = 10
+		  let comparison = aa >= bb && bb <= aa;
+		  console.log(comparison);
+		</script>
+
+		<!-- Challenge 5: OR (||) with Comparisons
+		Check if a number is less than 3 OR greater than 10
+		Log the result
+		-->
+		<script>
+		  let cc = 3
+		  let dd = 10
+		  let comparison3 = cc < dd || dd > cc;
+		  console.log(comparison3);
+		</script>
+
+
+	<!-- RELATIONAL OPERATORS -->
+
+		<!-- Challenge 1: Greater Than (>)
+		Check if one number is greater than another
+		Log the result
+		-->
+		  <script>
+		    firstNumber = 1;
+		    secondNumber = 2;
+		    console.log(secondNumber > firstNumber);
+		  </script>
+
+		<!-- Challenge 2: Less Than (<)
+		Compare two numbers using <
+		Log the result
+		-->
+		  <script>
+		    thirdNumber = 3;
+		    fourthNumber = 4;
+		    console.log(thirdNumber < fourthNumber);
+		  </script>
+
+	  	<!-- Challenge 3: Greater Than or Equal To (>=)
+	    Check if a number is greater than or equal to another
+	    Log the result
+	  	-->
+		  <script>
+		    console.log(fourthNumber >= firstNumber);
+		  </script>
+
+		<!-- Challenge 4: Less Than or Equal To (<=)
+		Compare two numbers using <=
+		Log the result
+		-->
+		  <script>
+		    console.log(thirdNumber <= secondNumber);
+		  </script>
+
+		<!-- Challenge 5: Relational Operator with Variables
+		Create two variables and compare them using >
+		Log the result
+		-->
+		  <script>
+		    let variable3 = 1500
+		    let variable4 = 2000
+		    console.log("Is this correct?:", variable4 > variable3);
+		  </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
