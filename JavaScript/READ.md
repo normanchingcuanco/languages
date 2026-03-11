@@ -5,18 +5,18 @@
 ## 1. Training Rules
 **Affects:** All Phases
 
-| Feature Name | Description | Objective | Purpose | Status |
-|------|------|------|------|------|
-| 1–3 Drills Per Topic | Limit each concept to a small number of drills | Prevent overload | Encourage deep mastery per concept | ✅ Active |
-| Gradual Difficulty Increase | Move from easier drills to harder drills slowly | Build stable understanding | Avoid logical confusion | ✅ Active |
-| No New Topics Until Stable | Do not introduce new topics until the current one is strong | Strengthen foundations | Prevent shallow learning | ✅ Active |
-| Unique Variable Names | Do not reuse variable names between drills | Force active reading | Prevent memorization shortcuts | ✅ Active |
-| Mock Interview Questions | Use job-test style problem descriptions | Simulate technical interviews | Improve job readiness | ✅ Active |
-| Manual JavaScript Writing | You must personally write and read the code | Build coding fluency | Avoid passive pattern copying | ✅ Active |
-| Step-by-Step Evaluation | Trace each condition and result | Strengthen execution reasoning | Improve debugging ability | ✅ Active |
-| Explain Logic | Explain why a solution works or fails | Build reasoning discipline | Prevent guessing answers | ✅ Active |
-| Detect Boundaries & Precedence | Always check edge cases and operator priority | Improve reliability | Prevent hidden bugs | ✅ Active |
-| Execution Control First | Master control flow before abstraction | Build architecture thinking | Prepare for advanced JS patterns | ✅ Active |
+| Feature Name | Description | Objective | Purpose |
+|------|------|------|------|
+| 1–3 Drills Per Topic | Limit each concept to a small number of drills | Prevent overload | Encourage deep mastery per concept |
+| Gradual Difficulty Increase | Move from easier drills to harder drills slowly | Build stable understanding | Avoid logical confusion |
+| No New Topics Until Stable | Do not introduce new topics until the current one is strong | Strengthen foundations | Prevent shallow learning |
+| Unique Variable Names | Do not reuse variable names between drills | Force active reading | Prevent memorization shortcuts |
+| Mock Interview Questions | Use job-test style problem descriptions | Simulate technical interviews | Improve job readiness |
+| Manual JavaScript Writing | You must personally write and read the code | Build coding fluency | Avoid passive pattern copying |
+| Step-by-Step Evaluation | Trace each condition and result | Strengthen execution reasoning | Improve debugging ability |
+| Explain Logic | Explain why a solution works or fails | Build reasoning discipline | Prevent guessing answers |
+| Detect Boundaries & Precedence | Always check edge cases and operator priority | Improve reliability | Prevent hidden bugs |
+| Execution Control First | Master control flow before abstraction | Build architecture thinking | Prepare for advanced JS patterns |
 
 ---
 
@@ -65,57 +65,72 @@
 ## 5. Sample Interview Question Formats
 **Affects:** Drill Format
 
-| Feature Name | Description | Objective | Purpose | Build Status |
-|------|------|------|------|------|
-| Blog Search Question | `// Question #1: Create a function that takes an array of blog post titles and a keyword. Search must be case-insensitive. Return undefined if inputs are not expected types.` | Practice defensive function logic | Train interview-style problem solving | ✅ Format Ready |
-| User Validation Question | `// Question #2: Given an array of user objects containing username and password, write isUserValid(users, username, password). Return true if match exists, false otherwise.` | Practice object array searching | Train authentication logic problems | ✅ Format Ready |
-| Constraint Reading | Identify input data, number of inputs, limitations, and boundaries before coding | Train problem analysis | Prevent rushed coding | ✅ Format Ready |
+| Feature Name | Description | Objective | Purpose |
+|------|------|------|------|
+| Blog Search Question | // Question #1: Create a function that takes an array of blog post titles and a keyword. Search must be case-insensitive. Return undefined if inputs are not expected types. | Practice defensive function logic | Train interview-style problem solving |
+| User Validation Question | // Question #2: Given an array of user objects containing username and password, write isUserValid(users, username, password). Return true if match exists, false otherwise. | Practice object array searching | Train authentication logic problems |
+| Constraint Reading | Identify input data, number of inputs, limitations, and boundaries before coding | Train problem analysis | Prevent rushed coding |
 
 ---
 
 ## 6. Drill Design Structure
 **Affects:** Practice Sessions
 
-| Feature Name | Description | Objective | Purpose | Build Status |
-|------|------|------|------|------|
-| Question Header | Problem description, constraints, expected behavior | Understand task before coding | Prevent incorrect assumptions | ✅ Active |
-| Starter Code | Base function with variables provided | Focus on writing logic | Reduce setup time | ✅ Active |
-| Required Response | Output, step-by-step evaluation, branch execution, boundary tests | Build execution reasoning | Improve debugging clarity | ✅ Active |
-| Escalation Pattern | Binary → Multi-branch → Guard + classification → Interview function → Edge-case defense | Increase difficulty gradually | Build structured learning path | ✅ Active |
+| Feature Name | Description | Objective | Purpose |
+|------|------|------|------|
+| Question Header | Problem description, constraints, expected behavior | Understand task before coding | Prevent incorrect assumptions |
+| Starter Code | Base function with variables provided | Focus on writing logic | Reduce setup time |
+| Required Response | Output, step-by-step evaluation, branch execution, boundary tests | Build execution reasoning | Improve debugging clarity |
+| Escalation Pattern | Binary → Multi-branch → Guard + classification → Interview function → Edge-case defense | Increase difficulty gradually | Build structured learning path |
 
 ---
 
 ## 7. Starter Code Template
 **Affects:** Drill Implementation
 
-| Feature Name | Description | Objective | Purpose | Build Status |
-|------|------|------|------|------|
-| Starter Function Template | `function exampleYY() { // variables provided // you write logic }` | Provide drill structure | Focus practice on logic | ✅ Active |
+Example starter template used in drills:
+
+```javascript
+function exampleYY() {
+   // variables provided
+   // you write logic
+}
+
+````
 
 ---
 
 ## 8. Required Response Format
 **Affects:** Drill Answers
 
-| Feature Name | Description | Objective | Purpose | Build Status |
-|------|------|------|------|------|
-| Output Display | Show the program result | Confirm code behavior | Validate logic correctness | ✅ Active |
-| Step-by-Step Evaluation | Trace condition evaluation | Understand execution flow | Improve reasoning | ✅ Active |
-| Branch Identification | Identify which branch executed | Detect decision path | Improve debugging clarity | ✅ Active |
-| Boundary Tests | Test edge values and limits | Validate reliability | Detect hidden bugs | ✅ Active |
+When responding to a drill, your answer should include the following elements:
+
+**Output Display**  
+Show the program result to confirm what the code produced.
+
+**Step-by-Step Evaluation**  
+Trace each condition and evaluation step-by-step to explain how the result was reached.
+
+**Branch Identification**  
+Identify which branch executed in the decision structure.
+
+**Boundary Tests**  
+Test edge values and limits to confirm the logic behaves correctly and does not produce hidden bugs.
 
 ---
 
 ## 9. Escalation Pattern
 **Affects:** Difficulty Progression
 
-| Feature Name | Description | Objective | Purpose | Build Status |
-|------|------|------|------|------|
-| Level 1 — Binary Condition | Simple `if / else` decisions | Build basic branching control | Establish foundation | ✅ Active |
-| Level 2 — Multi-Branch | `if / else if / else` classification | Train decision trees | Improve range logic | ✅ Active |
-| Level 3 — Guard + Classification | Validate then classify | Build safe control flow | Prevent invalid logic | ✅ Active |
-| Level 4 — Interview Function | Solve real problem with function | Simulate interview tasks | Improve coding test readiness | ⬜ Upcoming |
-| Level 5 — Edge Case Defense | Handle invalid inputs and boundaries | Build defensive programming | Improve reliability | ⬜ Upcoming |
+This is an optional pattern used to gradually increase the difficulty of drills.
+
+| Level | Description |
+|------|------|
+| Level 1 — Binary Condition | Simple `if / else` decisions to practice basic branching control. |
+| Level 2 — Multi-Branch | `if / else if / else` classification to train decision trees and range logic. |
+| Level 3 — Guard + Classification | Validate inputs first, then classify results to build safe control flow. |
+| Level 4 — Interview Function | Solve a full problem using a function to simulate interview-style tasks. |
+| Level 5 — Edge Case Defense | Add validation for invalid inputs and boundary cases to build defensive programming habits. |
 
 ---
 
