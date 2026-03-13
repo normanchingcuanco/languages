@@ -1693,7 +1693,7 @@
 			 Parentheses rule:
 			    Use them when mixing && and || or when you want clarity. -->
 
-		<!-- PRIMITIVES - affect mutation & reassignment. Primitives basic data types that are stored 		  directly in memory. They are not objects. They are copied by value. They 					    cannot be mutated — only reassigned. -->
+		<!-- PRIMITIVES - affect mutation & reassignment. Primitives basic data types that are stored 		  directly in memory. They are not objects. They are copied by value. They cannot be mutated — only reassigned. -->
 
 		<!-- Samples -->
 
@@ -2467,6 +2467,104 @@
 			</script>
 
 
+		<!-- START OF REVIEW AGAIN -->
+
+			<script>
+				
+				let scoreYY;
+				scoreYY = 10;
+				scoreYY = scoreYY + 5; // 10 + 5 = 15
+
+				console.log(scoreYY); // prints 15
+
+
+				let levelYY = 3;
+
+				{
+					let levelYY = 7; // no reassignment
+				}
+
+				console.log(levelYY); // prints 3
+
+				let countYY = 2;
+				let totalYY = countYY;
+
+				countYY = 5; // reassignment to 5
+
+				console.log(totalYY); // prints 5
+
+				let pointsYY = 4;
+
+				{
+					pointsYY = 9; // no reassignment. value is only readable inside this block
+				}
+
+				console.log(pointsYY); // prints 4
+
+				let valueYY;
+
+				console.log(valueYY); // prints undefined
+
+				valueYY = 12;
+
+				console.log(valueYY); // prints 12
+
+				let priceYY = 20;
+				let finalPriceYY = priceYY; // = 20
+
+				priceYY = 50; // priceYY now 50
+
+				console.log(priceYY); // prints 50
+				console.log(finalPriceYY); // prints 20, priceYY = 50 was not declared hence did not affect the declared finalPriceYY
+
+				let scoreYYY = 10;
+
+				{
+					let bonusYYY = 5;
+					scoreYYY = scoreYYY + bonusYYY; // 10+5 = 15, 
+				}
+
+				console.log(scoreYYY); // prints 15 , qq shouldnt this be just 10 because let bonusYYY = 5 only affect ths inside block?
+
+				let baseYY = 6;
+				{
+					let baseYY = 12; // baseYY is now 12 but only in this block and does not affect outside block
+				}
+				console.log(baseYY); // prints 6
+
+				let numYY = 3;
+				{
+					let addYY = 4;
+					numYY = numYY * addYY; // 3*4=12
+				}
+				console.log(numYY); // prints 12
+
+				let aYY = 5;
+
+				let bYY = aYY + 2; // 5+2 = 7
+
+				aYY = 20; // aYY is now 20
+
+				console.log(aYY); // prints 20
+				console.log(bYY); // prints 7
+
+				let outerYY = 8;
+				{
+					outerYY = 3; // outerYY is 3 in this block
+					let innerYY = outerYY + 2; // 3 + 2 = 5 but only affects this block
+				}
+				console.log(outerYY); // prints 3
+
+				let firstYY = 4;
+				let secondYY = firstYY; // 4
+
+				secondYY = secondYY + 3; // 4 + 3 = 7
+				firstYY = firstYY + 1; // 4 + 1 = 5
+
+				console.log(firstYY); // prints 5
+				console.log(secondYY); // prints 7
+
+			</script>
 
 
 

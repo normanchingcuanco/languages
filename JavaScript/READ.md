@@ -2,21 +2,40 @@
 
 ---
 
-## 1. Training Rules
+## 1. Training & Drill Methodology
 **Affects:** All Phases
 
-| Feature Name | Description | Objective | Purpose |
+| Guideline | Description | Objective | Purpose |
 |------|------|------|------|
-| 1–3 Drills Per Topic | Limit each concept to a small number of drills | Prevent overload | Encourage deep mastery per concept |
-| Gradual Difficulty Increase | Move from easier drills to harder drills slowly | Build stable understanding | Avoid logical confusion |
-| No New Topics Until Stable | Do not introduce new topics until the current one is strong | Strengthen foundations | Prevent shallow learning |
-| Unique Variable Names | Do not reuse variable names between drills | Force active reading | Prevent memorization shortcuts |
-| Mock Interview Questions | Use job-test style problem descriptions | Simulate technical interviews | Improve job readiness |
-| Manual JavaScript Writing | You must personally write and read the code | Build coding fluency | Avoid passive pattern copying |
-| Step-by-Step Evaluation | Trace each condition and result | Strengthen execution reasoning | Improve debugging ability |
-| Explain Logic | Explain why a solution works or fails | Build reasoning discipline | Prevent guessing answers |
-| Detect Boundaries & Precedence | Always check edge cases and operator priority | Improve reliability | Prevent hidden bugs |
-| Execution Control First | Master control flow before abstraction | Build architecture thinking | Prepare for advanced JS patterns |
+| Limited Drills Per Topic | Each concept is practiced using **1–2 drills only** before reviewing results | Prevent overload | Encourage deeper focus on each concept |
+| Gradual Difficulty Increase | Drills start simple and increase in complexity slowly | Build stable understanding | Avoid confusion from jumping difficulty levels |
+| Topic Stability Rule | Do not introduce new topics until the current topic is clearly understood | Strengthen foundations | Prevent shallow learning gaps |
+| Unique Variable Names | New drills must use **different variable names** | Force active code reading | Prevent memorization shortcuts |
+| Mock Interview Style | Questions should resemble job-test or interview prompts | Simulate real coding scenarios | Improve job readiness |
+| Manual JavaScript Writing | The learner must manually read and write code | Build true coding fluency | Avoid passive pattern copying |
+| Step-by-Step Execution | Each answer must trace code execution line by line | Strengthen reasoning about program flow | Improve debugging ability |
+| Logic Explanation | Explanations should be written in **beginner-friendly language** with simple steps | Make concepts easier to understand | Reduce confusion while learning |
+| Boundary & Precedence Awareness | Drills should include edge cases and priority checks | Improve reliability of solutions | Detect hidden bugs |
+| Execution Control First | Focus on control flow and logic before advanced abstractions | Build strong architectural thinking | Prepare for later JavaScript concepts |
+| Structured Drill Response | Each drill answer should include **output, step-by-step evaluation, branch identification (if applicable), and boundary tests** | Reinforce disciplined thinking | Ensure full understanding of code behavior |
+| Iterative Drill Review | Drills are solved first, then reviewed together before moving forward | Reinforce understanding | Correct misconceptions early |
+| Minimal Responses | Explanations and instructions should be concise and focused | Reduce unnecessary scrolling | Keep learning interactions efficient |
+| Code-First Explanations | Code examples should remain visible while explanations are given | Maintain clarity while reading logic | Prevent losing context when reviewing solutions |
+| Optional Difficulty Escalation | Drills may follow a progression: Binary → Multi-branch → Guard + classification → Interview function → Edge-case defense | Gradually expand logic complexity | Build confidence toward interview-level problems |
+
+---
+
+### Typical Drill Flow
+
+1. A **small number of drills (1–2)** are given for the current topic.  
+2. The learner writes the code and explains the result.  
+3. The learner provides:
+   - Output  
+   - Step-by-step evaluation  
+   - Explanation of why the result occurs  
+4. The solution is **reviewed and corrected if necessary**.  
+5. Additional drills may be given with **different variations** to strengthen understanding.  
+6. Only when the topic feels stable do we **move to the next concept**.
 
 ---
 
@@ -100,41 +119,7 @@ function exampleYY() {
 
 ---
 
-## 8. Required Response Format
-**Affects:** Drill Answers
-
-When responding to a drill, your answer should include the following elements:
-
-**Output Display**  
-Show the program result to confirm what the code produced.
-
-**Step-by-Step Evaluation**  
-Trace each condition and evaluation step-by-step to explain how the result was reached.
-
-**Branch Identification**  
-Identify which branch executed in the decision structure.
-
-**Boundary Tests**  
-Test edge values and limits to confirm the logic behaves correctly and does not produce hidden bugs.
-
----
-
-## 9. Escalation Pattern
-**Affects:** Difficulty Progression
-
-This is an optional pattern used to gradually increase the difficulty of drills.
-
-| Level | Description |
-|------|------|
-| Level 1 — Binary Condition | Simple `if / else` decisions to practice basic branching control. |
-| Level 2 — Multi-Branch | `if / else if / else` classification to train decision trees and range logic. |
-| Level 3 — Guard + Classification | Validate inputs first, then classify results to build safe control flow. |
-| Level 4 — Interview Function | Solve a full problem using a function to simulate interview-style tasks. |
-| Level 5 — Edge Case Defense | Add validation for invalid inputs and boundary cases to build defensive programming habits. |
-
----
-
-## 10. Current Training Priority
+## 8. Current Training Priority
 **Affects:** Immediate Learning Direction
 
 | Feature Name | Description | Objective | Purpose | Build Status |
