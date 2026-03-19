@@ -2564,6 +2564,144 @@
 				console.log(firstYY); // prints 5
 				console.log(secondYY); // prints 7
 
+				let alpha = 4;
+				let beta = alpha; // 4 
+
+				alpha = alpha + 3; // 4 + 3 = 7
+				beta = beta + alpha; // 4 + 7 = 11
+
+				console.log(alpha); // prints 7 
+				console.log(beta); // prints 11
+
+				let outer = 10; 
+				{
+					let inner = outer + 5; // 10 + 5 = 15
+					outer = inner - 3; // 15 - 3 = 12
+				}
+
+				console.log(outer); // prints 12
+				// console.log(inner); // prints error or not defined
+
+				let itemA = 42
+				let itemB = "42"
+				let itemC = true
+				let itemD = null
+				let itemE
+
+				console.log(typeof itemA) // num 
+				console.log(typeof itemB) // string
+				console.log(typeof itemC) // boolean
+				console.log(typeof itemD) // null
+				console.log(typeof itemE)  // undefined
+
+				let valueX = 5;
+				let valueY = "5";
+
+				console.log(valueX == valueY); // 5 == "5"
+				console.log(valueX === valueY); // 5 === 5
+
+				let scoreA = 0
+				let scoreB = false
+
+				console.log(scoreA == scoreB) // true
+				console.log(scoreA === scoreB) // true
+
+				let token = ""
+				let fallback = "active"
+
+				if (token || fallback) {
+				   console.log("ACCESS") // false || true = true, prints access
+				} else {
+				   console.log("DENIED") // will not run
+				}
+
+				let primary = 0;
+				let backup = "ready";
+
+				let result123 = primary || backup; // false || true = true
+
+				console.log(result123); // true
+
+
+				function showValue(data) {
+				   console.log(data) 
+				}
+
+				showValue(10) // 10
+				showValue(20) // 20
+
+				let base123 = 3
+				let mirror = base123 // 3
+
+				base123 = base123 * 2 // 3 * 2 = 6
+				mirror = mirror + 5 // 3 + 5 = 8
+
+				base123 = base123 - mirror // 8 - 8 = -2
+
+				console.log(base123) // -2
+				console.log(mirror) // 8
+
+				let aa = 5
+				let bb = aa // b is 5
+
+				aa = 10 // aa is now 10 
+				bb = bb + aa // 5 + 10 = 15
+
+				console.log(aa) // 10
+				console.log(bb) // 15
+
+				let root2 = 8
+				let branch2 = root2 // 8
+
+				{
+				   branch2 = branch2 + 2 // 8 + 2 = 10
+				   let leaf2 = branch2 * 2 // 16
+				   root2 = leaf2 - branch2 // 16 - 10 = 6
+				}
+
+				console.log(root2) // prints 6
+				console.log(branch2) // 10
+
+				let valueAA = null
+				let valueBB
+
+				console.log(valueAA == valueBB) // null == null = true
+				console.log(valueAA === valueBB) // null === undefined = false
+				console.log(typeof valueAA) // null
+				console.log(typeof valueBB) // undefined
+
+				let input1 = ""
+				let input2 = null
+				let input3 = "0"
+
+				console.log(Boolean(input1)) // false
+				console.log(Boolean(input2)) // false
+				console.log(Boolean(input3)) // true
+
+				let numAA = 0
+				let numBB = "0"
+				let resultA = numAA || numBB // true || true = true
+
+				let checkA = numAA == numBB // true == true = true 
+				let checkB = numAA === numBB // true === false = false
+
+				console.log(resultA) // true
+				console.log(checkA) // true
+				console.log(checkB) // false
+
+				let flagA = ""
+				let flagB = null
+				let statusAA = "OK"
+
+				{
+				   let temp = flagA || flagB || statusAA // false || false || true = true 
+				   flagA = temp // false
+				}
+
+				console.log(flagA) // false
+				console.log(flagB) // null
+				// console.log(temp) // not defined
+
 			</script>
 
 
